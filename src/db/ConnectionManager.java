@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 public class ConnectionManager {
     private Connection con;
     private String driver = "com.mysql.jdbc.Driver";
-    private String url = "jdbc:mysql://localhost:3306/data_rs"; // myDB --&gt; nama database
+    private String url = "jdbc:mysql://localhost:3306/administrasi"; // myDB --&gt; nama database
     private String username = "root"; // user name DMBS
     private String password = ""; // pswd DMBS
     public Connection logOn(){
