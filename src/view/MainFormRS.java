@@ -70,7 +70,6 @@ public class MainFormRS extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtNama_Pasien = new javax.swing.JTextField();
         txtNo_HpPasien = new javax.swing.JTextField();
-        txtStatusPasien = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAlamatPasien = new javax.swing.JTextArea();
         btnSimpan = new javax.swing.JButton();
@@ -79,6 +78,8 @@ public class MainFormRS extends javax.swing.JFrame {
         lblId_Pasien = new javax.swing.JLabel();
         btnHapus = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        ComboStatus = new javax.swing.JComboBox<>();
+        LblStatusPasien = new javax.swing.JLabel();
         pnlTblPasien = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPasien = new javax.swing.JTable();
@@ -177,38 +178,36 @@ public class MainFormRS extends javax.swing.JFrame {
 
         pnlInputPasien.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Nama");
         pnlInputPasien.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Nomor Hp");
         pnlInputPasien.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Alamat");
         pnlInputPasien.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Status");
         pnlInputPasien.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
-        txtNama_Pasien.setFont(new java.awt.Font("Garamond", 0, 16)); // NOI18N
-        pnlInputPasien.add(txtNama_Pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 240, -1));
+        txtNama_Pasien.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        pnlInputPasien.add(txtNama_Pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 220, -1));
 
-        txtNo_HpPasien.setFont(new java.awt.Font("Garamond", 0, 16)); // NOI18N
-        pnlInputPasien.add(txtNo_HpPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 240, -1));
-
-        txtStatusPasien.setFont(new java.awt.Font("Garamond", 0, 16)); // NOI18N
-        pnlInputPasien.add(txtStatusPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 80, -1));
+        txtNo_HpPasien.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        pnlInputPasien.add(txtNo_HpPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 220, -1));
 
         txtAlamatPasien.setColumns(20);
-        txtAlamatPasien.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
+        txtAlamatPasien.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtAlamatPasien.setRows(5);
         jScrollPane1.setViewportView(txtAlamatPasien);
 
-        pnlInputPasien.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 240, 100));
+        pnlInputPasien.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 220, -1));
 
+        btnSimpan.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnSimpan.setText("Simpan");
         btnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,7 +216,8 @@ public class MainFormRS extends javax.swing.JFrame {
         });
         pnlInputPasien.add(btnSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 100, 30));
 
-        btnUpdate.setText("Update");
+        btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnUpdate.setText("Ubah");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -225,13 +225,14 @@ public class MainFormRS extends javax.swing.JFrame {
         });
         pnlInputPasien.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 80, 30));
 
-        jLabel6.setFont(new java.awt.Font("Garamond", 0, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("ID");
         pnlInputPasien.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        lblId_Pasien.setFont(new java.awt.Font("Garamond", 0, 16)); // NOI18N
-        pnlInputPasien.add(lblId_Pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 30, -1));
+        lblId_Pasien.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        pnlInputPasien.add(lblId_Pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 40, 20));
 
+        btnHapus.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnHapus.setText("Hapus");
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,6 +241,7 @@ public class MainFormRS extends javax.swing.JFrame {
         });
         pnlInputPasien.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 80, 30));
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton4.setText("Reset");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,6 +249,18 @@ public class MainFormRS extends javax.swing.JFrame {
             }
         });
         pnlInputPasien.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 100, 30));
+
+        ComboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Merah", "Kuning", "Hijau", "Putih", "Hitam" }));
+        ComboStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboStatusActionPerformed(evt);
+            }
+        });
+        pnlInputPasien.add(ComboStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
+
+        LblStatusPasien.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblStatusPasien.setText(".");
+        pnlInputPasien.add(LblStatusPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 40, -1));
 
         tblPasien.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         tblPasien.setModel(new javax.swing.table.DefaultTableModel(
@@ -273,7 +287,7 @@ public class MainFormRS extends javax.swing.JFrame {
             pnlTblPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblPasienLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlTblPasienLayout.setVerticalGroup(
@@ -289,9 +303,10 @@ public class MainFormRS extends javax.swing.JFrame {
         pnlPasienLayout.setHorizontalGroup(
             pnlPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlPasienLayout.createSequentialGroup()
-                .addComponent(pnlInputPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlInputPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlTblPasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlTblPasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnlPasienLayout.setVerticalGroup(
             pnlPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -710,7 +725,7 @@ public class MainFormRS extends javax.swing.JFrame {
         txtNama_Pasien.setText(nama);
         txtNo_HpPasien.setText(no_hp);
         txtAlamatPasien.setText(alamat);
-        txtStatusPasien.setText(status);
+        LblStatusPasien.setText(status);
     }//GEN-LAST:event_tblPasienMouseClicked
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
@@ -720,7 +735,7 @@ public class MainFormRS extends javax.swing.JFrame {
         String nama = txtNama_Pasien.getText();
         String no_hp = txtNo_HpPasien.getText();
         String alamat = txtAlamatPasien.getText();
-        String status =  txtStatusPasien.getText();//
+        String status = LblStatusPasien.getText();//
         Pasien pas = new Pasien(0,nama, no_hp, alamat,status);
         exec.ExecutePasien ePas = new exec.ExecutePasien();
         int hasil = ePas.insertData(pas);
@@ -751,7 +766,7 @@ public class MainFormRS extends javax.swing.JFrame {
         int id_pasien = Integer.parseInt(id);
         String nama = txtNama_Pasien.getText();
         String alamat = txtAlamatPasien.getText();
-        String status = txtStatusPasien.getText();
+        String status = LblStatusPasien.getText();
         String no_hp = txtNo_HpPasien.getText();
         Pasien pas = new Pasien(id_pasien,nama, no_hp, alamat,status);
         exec.ExecutePasien ePas = new exec.ExecutePasien();
@@ -913,10 +928,31 @@ public class MainFormRS extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Data gagal di hapus");
         }
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void ComboStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboStatusActionPerformed
+        // TODO add your handling code here:
+        String kode;
+        if (ComboStatus.getSelectedIndex()==0){
+            kode = "Merah";
+            LblStatusPasien.setText(kode);
+        }else if (ComboStatus.getSelectedIndex()==1){
+            kode = "Kuning";
+            LblStatusPasien.setText(kode);
+        }else if (ComboStatus.getSelectedIndex()==2){
+            kode = "Hijau";
+            LblStatusPasien.setText(kode);
+        }else if (ComboStatus.getSelectedIndex()==3){
+            kode = "Putih";
+            LblStatusPasien.setText(kode);
+        }else if (ComboStatus.getSelectedIndex()==4){
+            kode = "Hitam";
+            LblStatusPasien.setText(kode);
+        }
+    }//GEN-LAST:event_ComboStatusActionPerformed
     private void hapus(){
         txtNama_Pasien.setText("");
         txtAlamatPasien.setText("");
-        txtStatusPasien.setText("");
+        LblStatusPasien.setText("");
         txtNo_HpPasien.setText("");
         lblId_Pasien.setText("");
     }
@@ -971,7 +1007,9 @@ public class MainFormRS extends javax.swing.JFrame {
     }
     private CardLayout cl;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboStatus;
     private javax.swing.JButton HapusDok;
+    private javax.swing.JLabel LblStatusPasien;
     private javax.swing.JButton ResetDok;
     private javax.swing.JButton UpdateDok;
     private javax.swing.JButton btnHapus;
@@ -1036,7 +1074,6 @@ public class MainFormRS extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomorHpAkun;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtSpesialis_Dokter;
-    private javax.swing.JTextField txtStatusPasien;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
