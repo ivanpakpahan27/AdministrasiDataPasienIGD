@@ -83,6 +83,8 @@ public class MainFormRS extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         ComboStatus = new javax.swing.JComboBox<>();
         LblStatusPasien = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        TxtNoRuangan = new javax.swing.JTextField();
         pnlTblPasien = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPasien = new javax.swing.JTable();
@@ -101,6 +103,12 @@ public class MainFormRS extends javax.swing.JFrame {
         UpdateDok = new javax.swing.JButton();
         HapusDok = new javax.swing.JButton();
         ResetDok = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        txtUsernameDok = new javax.swing.JTextField();
+        txtPasswordDok = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        txtNoHpDok = new javax.swing.JTextField();
         pnlTblDokter = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblDokter = new javax.swing.JTable();
@@ -203,8 +211,7 @@ public class MainFormRS extends javax.swing.JFrame {
         pnlUtama.setLayout(new java.awt.CardLayout());
 
         jLabel1.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 51, 255));
-        jLabel1.setText("Halo Selamat Datang....");
+        jLabel1.setText("Selamat datang Admin ...");
         pnlUtama.add(jLabel1, "card2");
 
         pnlInputPasien.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -236,7 +243,7 @@ public class MainFormRS extends javax.swing.JFrame {
         txtAlamatPasien.setRows(5);
         jScrollPane1.setViewportView(txtAlamatPasien);
 
-        pnlInputPasien.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 220, -1));
+        pnlInputPasien.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 220, 90));
 
         btnSimpan.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnSimpan.setText("Simpan");
@@ -245,7 +252,7 @@ public class MainFormRS extends javax.swing.JFrame {
                 btnSimpanActionPerformed(evt);
             }
         });
-        pnlInputPasien.add(btnSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 100, 30));
+        pnlInputPasien.add(btnSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 100, 30));
 
         btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnUpdate.setText("Ubah");
@@ -254,7 +261,7 @@ public class MainFormRS extends javax.swing.JFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
-        pnlInputPasien.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 80, 30));
+        pnlInputPasien.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 80, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("ID");
@@ -270,7 +277,7 @@ public class MainFormRS extends javax.swing.JFrame {
                 btnHapusActionPerformed(evt);
             }
         });
-        pnlInputPasien.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 80, 30));
+        pnlInputPasien.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 80, 30));
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton4.setText("Reset");
@@ -279,7 +286,7 @@ public class MainFormRS extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        pnlInputPasien.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 100, 30));
+        pnlInputPasien.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 100, 30));
 
         ComboStatus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ComboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Merah", "Kuning", "Hijau", "Putih", "Hitam" }));
@@ -294,9 +301,23 @@ public class MainFormRS extends javax.swing.JFrame {
         LblStatusPasien.setText("Merah");
         pnlInputPasien.add(LblStatusPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 60, 20));
 
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel18.setText("No Ruang");
+        pnlInputPasien.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+
+        TxtNoRuangan.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        pnlInputPasien.add(TxtNoRuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 220, -1));
+
         tblPasien.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         tblPasien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -319,15 +340,15 @@ public class MainFormRS extends javax.swing.JFrame {
             pnlTblPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTblPasienLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
                 .addGap(29, 29, 29))
         );
         pnlTblPasienLayout.setVerticalGroup(
             pnlTblPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblPasienLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout pnlPasienLayout = new javax.swing.GroupLayout(pnlPasien);
@@ -345,36 +366,36 @@ public class MainFormRS extends javax.swing.JFrame {
             .addGroup(pnlPasienLayout.createSequentialGroup()
                 .addGroup(pnlPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlTblPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlInputPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(159, Short.MAX_VALUE))
+                    .addComponent(pnlInputPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         pnlUtama.add(pnlPasien, "cardPasien");
 
-        jLabel7.setFont(new java.awt.Font("Garamond", 0, 16)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("ID");
 
-        lblId_dokter.setFont(new java.awt.Font("Garamond", 0, 16)); // NOI18N
+        lblId_dokter.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Garamond", 0, 16)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Nama");
 
-        jLabel11.setFont(new java.awt.Font("Garamond", 0, 16)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("Spesialis");
 
-        jLabel12.setFont(new java.awt.Font("Garamond", 0, 16)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("Alamat");
 
-        txtNama_Dokter.setFont(new java.awt.Font("Garamond", 0, 16)); // NOI18N
+        txtNama_Dokter.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        txtSpesialis_Dokter.setFont(new java.awt.Font("Garamond", 0, 16)); // NOI18N
+        txtSpesialis_Dokter.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         txtAlamat_Dokter.setColumns(20);
-        txtAlamat_Dokter.setFont(new java.awt.Font("Garamond", 0, 16)); // NOI18N
+        txtAlamat_Dokter.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtAlamat_Dokter.setRows(5);
         jScrollPane3.setViewportView(txtAlamat_Dokter);
 
-        simpanDok.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        simpanDok.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         simpanDok.setText("Simpan");
         simpanDok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -382,7 +403,7 @@ public class MainFormRS extends javax.swing.JFrame {
             }
         });
 
-        UpdateDok.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        UpdateDok.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         UpdateDok.setText("Update");
         UpdateDok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -390,7 +411,7 @@ public class MainFormRS extends javax.swing.JFrame {
             }
         });
 
-        HapusDok.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        HapusDok.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         HapusDok.setText("Hapus");
         HapusDok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -398,13 +419,28 @@ public class MainFormRS extends javax.swing.JFrame {
             }
         });
 
-        ResetDok.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        ResetDok.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ResetDok.setText("Reset");
         ResetDok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResetDokActionPerformed(evt);
             }
         });
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel19.setText("Username");
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel20.setText("Password");
+
+        txtUsernameDok.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        txtPasswordDok.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel21.setText("Nomor Hp");
+
+        txtNoHpDok.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout pnlInputDokterLayout = new javax.swing.GroupLayout(pnlInputDokter);
         pnlInputDokter.setLayout(pnlInputDokterLayout);
@@ -413,30 +449,46 @@ public class MainFormRS extends javax.swing.JFrame {
             .addGroup(pnlInputDokterLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInputDokterLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(simpanDok)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(UpdateDok)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(HapusDok)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ResetDok))
                     .addGroup(pnlInputDokterLayout.createSequentialGroup()
                         .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel11)
                             .addComponent(jLabel12)
-                            .addComponent(jLabel10))
-                        .addGap(71, 71, 71)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel19))
                         .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNama_Dokter)
-                            .addComponent(txtSpesialis_Dokter)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
                             .addGroup(pnlInputDokterLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
+                                .addGap(27, 27, 27)
+                                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNama_Dokter, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtUsernameDok)))
+                            .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                                .addGap(91, 91, 91)
                                 .addComponent(lblId_dokter, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInputDokterLayout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(jScrollPane3))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInputDokterLayout.createSequentialGroup()
+                        .addGap(0, 12, Short.MAX_VALUE)
+                        .addComponent(simpanDok)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(UpdateDok, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(HapusDok, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ResetDok, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                        .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel11))
+                        .addGap(25, 25, 25)
+                        .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSpesialis_Dokter, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtNoHpDok)))
+                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtPasswordDok, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         pnlInputDokterLayout.setVerticalGroup(
@@ -444,27 +496,54 @@ public class MainFormRS extends javax.swing.JFrame {
             .addGroup(pnlInputDokterLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(lblId_dokter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNama_Dokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSpesialis_Dokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
+                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                        .addComponent(lblId_dokter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNama_Dokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel10)
+                        .addGap(0, 6, Short.MAX_VALUE)))
+                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel19))
+                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtUsernameDok, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel20))
+                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPasswordDok, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel21))
+                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNoHpDok, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addGap(71, 71, 71)
+                    .addComponent(jLabel11)
+                    .addComponent(txtSpesialis_Dokter, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel12))
+                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(75, 75, 75)
                 .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(simpanDok)
-                    .addComponent(UpdateDok)
+                    .addComponent(ResetDok)
                     .addComponent(HapusDok)
-                    .addComponent(ResetDok))
-                .addContainerGap(70, Short.MAX_VALUE))
+                    .addComponent(UpdateDok)
+                    .addComponent(simpanDok))
+                .addContainerGap())
         );
 
         jScrollPane4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -473,9 +552,18 @@ public class MainFormRS extends javax.swing.JFrame {
             }
         });
 
-        tblDokter.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tblDokter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tblDokter.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -503,10 +591,10 @@ public class MainFormRS extends javax.swing.JFrame {
         );
         pnlTblDokterLayout.setVerticalGroup(
             pnlTblDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblDokterLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
+            .addGroup(pnlTblDokterLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlDokterLayout = new javax.swing.GroupLayout(pnlDokter);
@@ -514,18 +602,18 @@ public class MainFormRS extends javax.swing.JFrame {
         pnlDokterLayout.setHorizontalGroup(
             pnlDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDokterLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addComponent(pnlInputDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlTblDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         pnlDokterLayout.setVerticalGroup(
             pnlDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDokterLayout.createSequentialGroup()
-                .addComponent(pnlInputDokter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addComponent(pnlTblDokter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlDokterLayout.createSequentialGroup()
+                .addComponent(pnlInputDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 42, Short.MAX_VALUE))
         );
 
         pnlUtama.add(pnlDokter, "cardDokter");
@@ -733,7 +821,7 @@ public class MainFormRS extends javax.swing.JFrame {
         pnlTblAkun.setLayout(pnlTblAkunLayout);
         pnlTblAkunLayout.setHorizontalGroup(
             pnlTblAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
         );
         pnlTblAkunLayout.setVerticalGroup(
             pnlTblAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1108,6 +1196,7 @@ public class MainFormRS extends javax.swing.JFrame {
     private javax.swing.JButton HapusDok;
     private javax.swing.JLabel LblStatusPasien;
     private javax.swing.JButton ResetDok;
+    private javax.swing.JTextField TxtNoRuangan;
     private javax.swing.JButton UpdateDok;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnSimpan;
@@ -1132,7 +1221,11 @@ public class MainFormRS extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1172,10 +1265,13 @@ public class MainFormRS extends javax.swing.JFrame {
     private javax.swing.JTextField txtNamaAkun;
     private javax.swing.JTextField txtNama_Dokter;
     private javax.swing.JTextField txtNama_Pasien;
+    private javax.swing.JTextField txtNoHpDok;
     private javax.swing.JTextField txtNo_HpPasien;
     private javax.swing.JTextField txtNomorHpAkun;
     private javax.swing.JTextField txtPassword;
+    private javax.swing.JTextField txtPasswordDok;
     private javax.swing.JTextField txtSpesialis_Dokter;
     private javax.swing.JTextField txtUsername;
+    private javax.swing.JTextField txtUsernameDok;
     // End of variables declaration//GEN-END:variables
 }
