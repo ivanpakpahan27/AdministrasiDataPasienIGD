@@ -250,6 +250,7 @@ public class MainFormRS extends javax.swing.JFrame {
         });
         pnlInputPasien.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 100, 30));
 
+        ComboStatus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ComboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Merah", "Kuning", "Hijau", "Putih", "Hitam" }));
         ComboStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,8 +260,8 @@ public class MainFormRS extends javax.swing.JFrame {
         pnlInputPasien.add(ComboStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
 
         LblStatusPasien.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        LblStatusPasien.setText(".");
-        pnlInputPasien.add(LblStatusPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 40, 20));
+        LblStatusPasien.setText("Merah");
+        pnlInputPasien.add(LblStatusPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 60, 20));
 
         tblPasien.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         tblPasien.setModel(new javax.swing.table.DefaultTableModel(
