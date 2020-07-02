@@ -260,7 +260,7 @@ public class MainFormRS extends javax.swing.JFrame {
 
         LblStatusPasien.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblStatusPasien.setText(".");
-        pnlInputPasien.add(LblStatusPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 40, -1));
+        pnlInputPasien.add(LblStatusPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 40, 20));
 
         tblPasien.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         tblPasien.setModel(new javax.swing.table.DefaultTableModel(
