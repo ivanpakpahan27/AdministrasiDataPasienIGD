@@ -60,6 +60,9 @@ public class MainFormRS extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
         pnlUtama = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         pnlPasien = new javax.swing.JPanel();
@@ -126,12 +129,14 @@ public class MainFormRS extends javax.swing.JFrame {
         tblAkun = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jToolBar1.setRollover(true);
         jToolBar1.setFont(new java.awt.Font("Tw Cen MT", 0, 12)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/pasien48.png"))); // NOI18N
+        jButton1.setFont(new java.awt.Font("Garamond", 1, 12)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Pasien.png"))); // NOI18N
         jButton1.setText("Data Pasien");
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -143,8 +148,8 @@ public class MainFormRS extends javax.swing.JFrame {
         });
         jToolBar1.add(jButton1);
 
-        jButton2.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Dokter48.png"))); // NOI18N
+        jButton2.setFont(new java.awt.Font("Garamond", 1, 12)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Dokter.png"))); // NOI18N
         jButton2.setText("Data Dokter");
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -156,8 +161,8 @@ public class MainFormRS extends javax.swing.JFrame {
         });
         jToolBar1.add(jButton2);
 
-        jButton3.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Akun48.png"))); // NOI18N
+        jButton3.setFont(new java.awt.Font("Garamond", 1, 12)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Admin.png"))); // NOI18N
         jButton3.setText("Data Admin");
         jButton3.setFocusable(false);
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -168,6 +173,30 @@ public class MainFormRS extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(jButton3);
+
+        jButton9.setFont(new java.awt.Font("Garamond", 1, 12)); // NOI18N
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ST.png"))); // NOI18N
+        jButton9.setText("Surat Tindakan");
+        jButton9.setFocusable(false);
+        jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton9);
+
+        jButton10.setFont(new java.awt.Font("Garamond", 1, 12)); // NOI18N
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Layanan.png"))); // NOI18N
+        jButton10.setText("Laporan");
+        jButton10.setFocusable(false);
+        jButton10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton10.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton10);
+
+        jButton11.setFont(new java.awt.Font("Garamond", 1, 12)); // NOI18N
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Pembayaran.png"))); // NOI18N
+        jButton11.setText("Pembayaran");
+        jButton11.setFocusable(false);
+        jButton11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton11);
 
         pnlUtama.setLayout(new java.awt.CardLayout());
 
@@ -263,7 +292,7 @@ public class MainFormRS extends javax.swing.JFrame {
         LblStatusPasien.setText("Merah");
         pnlInputPasien.add(LblStatusPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 60, 20));
 
-        tblPasien.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        tblPasien.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         tblPasien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -286,10 +315,10 @@ public class MainFormRS extends javax.swing.JFrame {
         pnlTblPasien.setLayout(pnlTblPasienLayout);
         pnlTblPasienLayout.setHorizontalGroup(
             pnlTblPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblPasienLayout.createSequentialGroup()
+            .addGroup(pnlTblPasienLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+                .addGap(29, 29, 29))
         );
         pnlTblPasienLayout.setVerticalGroup(
             pnlTblPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1017,6 +1046,8 @@ public class MainFormRS extends javax.swing.JFrame {
     private javax.swing.JButton btnSimpan;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1024,6 +1055,7 @@ public class MainFormRS extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
