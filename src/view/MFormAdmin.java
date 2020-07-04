@@ -109,6 +109,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         txtPasswordDok = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         txtNoHpDok = new javax.swing.JTextField();
+        lvlDokter = new javax.swing.JLabel();
         pnlTblDokter = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblDokter = new javax.swing.JTable();
@@ -145,6 +146,7 @@ public class MFormAdmin extends javax.swing.JFrame {
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(new javax.swing.border.MatteBorder(null));
+        jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
         jToolBar1.setFont(new java.awt.Font("Tw Cen MT", 0, 12)); // NOI18N
 
@@ -224,6 +226,9 @@ public class MFormAdmin extends javax.swing.JFrame {
         jLabel1.setText("Selamat datang Admin ...");
         pnlUtama.add(jLabel1, "card2");
 
+        pnlPasien.setBackground(new java.awt.Color(255, 255, 255));
+
+        pnlInputPasien.setBackground(new java.awt.Color(255, 255, 255));
         pnlInputPasien.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -307,7 +312,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         });
         pnlInputPasien.add(ComboStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
 
-        LblStatusPasien.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblStatusPasien.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         LblStatusPasien.setText("Merah");
         pnlInputPasien.add(LblStatusPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 60, 20));
 
@@ -318,6 +323,12 @@ public class MFormAdmin extends javax.swing.JFrame {
         TxtNoRuangan.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         pnlInputPasien.add(TxtNoRuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 220, -1));
 
+        pnlTblPasien.setBackground(new java.awt.Color(255, 255, 255));
+
+        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        tblPasien.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tblPasien.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         tblPasien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -377,7 +388,7 @@ public class MFormAdmin extends javax.swing.JFrame {
                 .addGroup(pnlPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlTblPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnlInputPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         pnlUtama.add(pnlPasien, "cardPasien");
@@ -405,6 +416,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         txtSpesialis_Dokter.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtAlamat_Dokter.setColumns(20);
         txtAlamat_Dokter.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -458,6 +470,9 @@ public class MFormAdmin extends javax.swing.JFrame {
 
         txtNoHpDok.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
+        lvlDokter.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lvlDokter.setText("Dokter");
+
         javax.swing.GroupLayout pnlInputDokterLayout = new javax.swing.GroupLayout(pnlInputDokter);
         pnlInputDokter.setLayout(pnlInputDokterLayout);
         pnlInputDokterLayout.setHorizontalGroup(
@@ -471,20 +486,17 @@ public class MFormAdmin extends javax.swing.JFrame {
                             .addComponent(jLabel12)
                             .addComponent(jLabel10)
                             .addComponent(jLabel19))
+                        .addGap(27, 27, 27)
                         .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtUsernameDok, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtNama_Dokter)
                             .addGroup(pnlInputDokterLayout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(txtNama_Dokter))
-                            .addGroup(pnlInputDokterLayout.createSequentialGroup()
-                                .addGap(91, 91, 91)
+                                .addGap(9, 9, 9)
                                 .addComponent(lblId_dokter, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInputDokterLayout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(jScrollPane3))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInputDokterLayout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(txtUsernameDok))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lvlDokter)
+                                .addGap(30, 30, 30))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInputDokterLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(simpanDok)
@@ -510,50 +522,34 @@ public class MFormAdmin extends javax.swing.JFrame {
             pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlInputDokterLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
+                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblId_dokter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7)
+                    .addComponent(lvlDokter, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNama_Dokter, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsernameDok, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPasswordDok, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNoHpDok, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
-                        .addComponent(lblId_dokter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNama_Dokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel10)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(txtSpesialis_Dokter, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel19)
-                        .addGap(3, 3, 3))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInputDokterLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtUsernameDok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel20))
-                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPasswordDok, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel21)
-                        .addGap(9, 9, 9))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInputDokterLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNoHpDok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(txtSpesialis_Dokter, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel12))
-                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(75, 75, 75)
                 .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ResetDok)
@@ -566,6 +562,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         pnlTblDokter.setBackground(new java.awt.Color(255, 255, 255));
 
         jScrollPane4.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jScrollPane4MouseClicked(evt);
@@ -615,7 +612,7 @@ public class MFormAdmin extends javax.swing.JFrame {
             .addGroup(pnlTblDokterLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlDokterLayout = new javax.swing.GroupLayout(pnlDokter);
@@ -638,6 +635,7 @@ public class MFormAdmin extends javax.swing.JFrame {
 
         pnlAkun.setBackground(new java.awt.Color(255, 255, 255));
 
+        pnlInputAkun.setBackground(new java.awt.Color(255, 255, 255));
         pnlInputAkun.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         lblLevel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -682,7 +680,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         txtAlamatAkun.setRows(5);
         jScrollPane5.setViewportView(txtAlamatAkun);
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton5.setText("Simpan");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -690,7 +688,7 @@ public class MFormAdmin extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton6.setText("Update");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -698,7 +696,7 @@ public class MFormAdmin extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton7.setText("Hapus");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -706,7 +704,7 @@ public class MFormAdmin extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton8.setText("Reset");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -764,29 +762,32 @@ public class MFormAdmin extends javax.swing.JFrame {
             .addGroup(pnlInputAkunLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblId_Akun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel8)
-                    .addComponent(lblLevel))
-                .addGap(10, 10, 10)
-                .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblId_Akun, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                    .addComponent(lblLevel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
+                    .addGroup(pnlInputAkunLayout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(16, 16, 16))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInputAkunLayout.createSequentialGroup()
+                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel15)
-                    .addComponent(txtNamaAkun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNamaAkun, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16)
-                    .addComponent(txtNomorHpAkun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNomorHpAkun, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
-                    .addComponent(txtEmailAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmailAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17)
@@ -803,6 +804,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         pnlTblAkun.setBackground(new java.awt.Color(255, 255, 255));
 
         jScrollPane6.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         tblAkun.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         tblAkun.setModel(new javax.swing.table.DefaultTableModel(
@@ -867,10 +869,12 @@ public class MFormAdmin extends javax.swing.JFrame {
         );
         pnlAkunLayout.setVerticalGroup(
             pnlAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAkunLayout.createSequentialGroup()
+            .addGroup(pnlAkunLayout.createSequentialGroup()
                 .addGroup(pnlAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlInputAkun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlTblAkun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlTblAkun, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlAkunLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(pnlInputAkun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -1269,6 +1273,7 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel lblId_Pasien;
     private javax.swing.JLabel lblId_dokter;
     private javax.swing.JLabel lblLevel;
+    private javax.swing.JLabel lvlDokter;
     private javax.swing.JPanel pnlAkun;
     private javax.swing.JPanel pnlDokter;
     private javax.swing.JPanel pnlInputAkun;
