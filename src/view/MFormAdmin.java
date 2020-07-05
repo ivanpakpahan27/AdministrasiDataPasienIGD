@@ -41,7 +41,7 @@ public class MFormAdmin extends javax.swing.JFrame {
     private void setDataAdmin(){
         ConvertAdminToObject catb = new ConvertAdminToObject();
         String[][] dataAdmin = catb.getAdmin();
-        tblAkun.setModel(new javax.swing.table.DefaultTableModel(
+        tblAdmin.setModel(new javax.swing.table.DefaultTableModel(
                 dataAdmin,
                 new String [] {"ID", "Nama", "Username", "Password","Level","Nomor Hp","Email","Alamat"})
         );
@@ -113,31 +113,35 @@ public class MFormAdmin extends javax.swing.JFrame {
         pnlTblDokter = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblDokter = new javax.swing.JTable();
-        pnlAkun = new javax.swing.JPanel();
-        pnlInputAkun = new javax.swing.JPanel();
-        lblLevel = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        txtCariDokter = new javax.swing.JTextField();
+        jButton12 = new javax.swing.JButton();
+        pnlAdmin = new javax.swing.JPanel();
+        pnlInputAdmin = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
         lblId_Akun = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        txtNamaAkun = new javax.swing.JTextField();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        txtAlamatAkun = new javax.swing.JTextArea();
+        simpanDok1 = new javax.swing.JButton();
+        UpdateDok1 = new javax.swing.JButton();
+        HapusDok1 = new javax.swing.JButton();
+        ResetDok1 = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
-        txtNamaAkun = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
         txtNomorHpAkun = new javax.swing.JTextField();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        txtAlamatAkun = new javax.swing.JTextArea();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        lblLevel = new javax.swing.JLabel();
         txtEmailAdmin = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        pnlTblAkun = new javax.swing.JPanel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        tblAkun = new javax.swing.JTable();
+        jLabel29 = new javax.swing.JLabel();
+        pnlTblAdmin = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tblAdmin = new javax.swing.JTable();
+        tblAkun = new javax.swing.JTextField();
+        jButton13 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -388,7 +392,7 @@ public class MFormAdmin extends javax.swing.JFrame {
                 .addGroup(pnlPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlTblPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnlInputPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
         pnlUtama.add(pnlPasien, "cardPasien");
@@ -416,7 +420,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         txtSpesialis_Dokter.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txtAlamat_Dokter.setColumns(20);
         txtAlamat_Dokter.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -488,7 +492,6 @@ public class MFormAdmin extends javax.swing.JFrame {
                             .addComponent(jLabel19))
                         .addGap(27, 27, 27)
                         .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtUsernameDok, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtNama_Dokter)
                             .addGroup(pnlInputDokterLayout.createSequentialGroup()
@@ -496,16 +499,8 @@ public class MFormAdmin extends javax.swing.JFrame {
                                 .addComponent(lblId_dokter, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lvlDokter)
-                                .addGap(30, 30, 30))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInputDokterLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(simpanDok)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(UpdateDok, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(HapusDok, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ResetDok, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(8, 8, 8))
+                            .addComponent(jScrollPane3)))
                     .addGroup(pnlInputDokterLayout.createSequentialGroup()
                         .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel21)
@@ -515,18 +510,35 @@ public class MFormAdmin extends javax.swing.JFrame {
                         .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPasswordDok)
                             .addComponent(txtSpesialis_Dokter, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtNoHpDok))))
+                            .addComponent(txtNoHpDok)))
+                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                        .addComponent(simpanDok)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(UpdateDok, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(HapusDok, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ResetDok, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlInputDokterLayout.setVerticalGroup(
             pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlInputDokterLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblId_dokter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7)
-                    .addComponent(lvlDokter, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel7)
+                        .addGap(20, 20, 20))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInputDokterLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                                .addComponent(lblId_dokter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(11, 11, 11))
+                            .addGroup(pnlInputDokterLayout.createSequentialGroup()
+                                .addComponent(lvlDokter, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))))
                 .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNama_Dokter, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
@@ -543,20 +555,20 @@ public class MFormAdmin extends javax.swing.JFrame {
                     .addComponent(txtNoHpDok, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtSpesialis_Dokter, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(75, 75, 75)
                 .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ResetDok)
-                    .addComponent(HapusDok)
+                    .addComponent(txtSpesialis_Dokter, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(pnlInputDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(simpanDok)
                     .addComponent(UpdateDok)
-                    .addComponent(simpanDok))
-                .addContainerGap())
+                    .addComponent(HapusDok)
+                    .addComponent(ResetDok))
+                .addGap(87, 87, 87))
         );
 
         pnlTblDokter.setBackground(new java.awt.Color(255, 255, 255));
@@ -598,13 +610,24 @@ public class MFormAdmin extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(tblDokter);
 
+        txtCariDokter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        jButton12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton12.setText("Cari");
+
         javax.swing.GroupLayout pnlTblDokterLayout = new javax.swing.GroupLayout(pnlTblDokter);
         pnlTblDokter.setLayout(pnlTblDokterLayout);
         pnlTblDokterLayout.setHorizontalGroup(
             pnlTblDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTblDokterLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4)
+                .addGroup(pnlTblDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4)
+                    .addGroup(pnlTblDokterLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(txtCariDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         pnlTblDokterLayout.setVerticalGroup(
@@ -612,6 +635,10 @@ public class MFormAdmin extends javax.swing.JFrame {
             .addGroup(pnlTblDokterLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(pnlTblDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton12)
+                    .addComponent(txtCariDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -633,189 +660,193 @@ public class MFormAdmin extends javax.swing.JFrame {
 
         pnlUtama.add(pnlDokter, "cardDokter");
 
-        pnlAkun.setBackground(new java.awt.Color(255, 255, 255));
+        pnlAdmin.setBackground(new java.awt.Color(255, 255, 255));
 
-        pnlInputAkun.setBackground(new java.awt.Color(255, 255, 255));
-        pnlInputAkun.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        pnlInputAdmin.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblLevel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblLevel.setText("-");
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel8.setText("ID");
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel22.setText("ID");
 
         lblId_Akun.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblId_Akun.setText("0");
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel13.setText("Username");
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel23.setText("Nama");
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel14.setText("Password");
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel15.setText("Nama");
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel16.setText("Nomor Hp");
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel17.setText("Alamat");
-
-        txtUsername.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
-            }
-        });
-
-        txtPassword.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel25.setText("Alamat");
 
         txtNamaAkun.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        txtNomorHpAkun.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jScrollPane7.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txtAlamatAkun.setColumns(20);
         txtAlamatAkun.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtAlamatAkun.setRows(5);
-        jScrollPane5.setViewportView(txtAlamatAkun);
+        jScrollPane7.setViewportView(txtAlamatAkun);
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton5.setText("Simpan");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        simpanDok1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        simpanDok1.setText("Simpan");
+        simpanDok1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                simpanDok1ActionPerformed(evt);
             }
         });
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton6.setText("Update");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        UpdateDok1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        UpdateDok1.setText("Update");
+        UpdateDok1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                UpdateDok1ActionPerformed(evt);
             }
         });
 
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton7.setText("Hapus");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        HapusDok1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        HapusDok1.setText("Hapus");
+        HapusDok1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                HapusDok1ActionPerformed(evt);
             }
         });
 
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton8.setText("Reset");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        ResetDok1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ResetDok1.setText("Reset");
+        ResetDok1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                ResetDok1ActionPerformed(evt);
             }
         });
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel26.setText("Username");
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel27.setText("Password");
+
+        txtUsername.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        txtPassword.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel28.setText("Nomor Hp");
+
+        txtNomorHpAkun.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        lblLevel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblLevel.setText("Admin");
 
         txtEmailAdmin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel9.setText("Email");
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel29.setText("Email");
 
-        javax.swing.GroupLayout pnlInputAkunLayout = new javax.swing.GroupLayout(pnlInputAkun);
-        pnlInputAkun.setLayout(pnlInputAkunLayout);
-        pnlInputAkunLayout.setHorizontalGroup(
-            pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlInputAkunLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlInputAdminLayout = new javax.swing.GroupLayout(pnlInputAdmin);
+        pnlInputAdmin.setLayout(pnlInputAdminLayout);
+        pnlInputAdminLayout.setHorizontalGroup(
+            pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlInputAdminLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlInputAkunLayout.createSequentialGroup()
-                        .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel9))
-                        .addGap(31, 31, 31)
-                        .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmailAdmin)
-                            .addGroup(pnlInputAkunLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(lblId_Akun, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInputAdminLayout.createSequentialGroup()
+                        .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel26))
+                        .addGap(27, 27, 27)
+                        .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtNamaAkun)
+                            .addGroup(pnlInputAdminLayout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(lblId_Akun, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtUsername)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtNamaAkun, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtNomorHpAkun, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(pnlInputAkunLayout.createSequentialGroup()
-                        .addComponent(jButton5)
+                                .addComponent(lblLevel)
+                                .addGap(8, 8, 8))
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)))
+                    .addGroup(pnlInputAdminLayout.createSequentialGroup()
+                        .addComponent(simpanDok1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6)
+                        .addComponent(UpdateDok1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7)
+                        .addComponent(HapusDok1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton8)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(ResetDok1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlInputAdminLayout.createSequentialGroup()
+                        .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel29))
+                        .addGap(25, 25, 25)
+                        .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEmailAdmin)
+                            .addComponent(txtPassword)
+                            .addComponent(txtNomorHpAkun))))
                 .addContainerGap())
         );
-        pnlInputAkunLayout.setVerticalGroup(
-            pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlInputAkunLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(lblId_Akun, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
-                    .addComponent(lblLevel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        pnlInputAdminLayout.setVerticalGroup(
+            pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlInputAdminLayout.createSequentialGroup()
+                .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInputAdminLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel22)
+                        .addGap(20, 20, 20))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInputAdminLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlInputAdminLayout.createSequentialGroup()
+                                .addComponent(lblId_Akun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(11, 11, 11))
+                            .addGroup(pnlInputAdminLayout.createSequentialGroup()
+                                .addComponent(lblLevel, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))))
+                .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNamaAkun, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlInputAkunLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(16, 16, 16))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInputAkunLayout.createSequentialGroup()
-                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(txtNamaAkun, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel27))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16)
-                    .addComponent(txtNomorHpAkun, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(txtEmailAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(pnlInputAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8))
-                .addGap(52, 52, 52))
+                .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNomorHpAkun, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEmailAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(simpanDok1)
+                    .addComponent(UpdateDok1)
+                    .addComponent(HapusDok1)
+                    .addComponent(ResetDok1))
+                .addGap(58, 58, 58))
         );
 
-        pnlTblAkun.setBackground(new java.awt.Color(255, 255, 255));
+        pnlTblAdmin.setBackground(new java.awt.Color(255, 255, 255));
 
-        jScrollPane6.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane8.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jScrollPane8MouseClicked(evt);
+            }
+        });
 
-        tblAkun.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        tblAkun.setModel(new javax.swing.table.DefaultTableModel(
+        tblAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblAdmin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tblAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -834,51 +865,62 @@ public class MFormAdmin extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tblAkun.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        tblAkun.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        tblAkun.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblAkunMouseClicked(evt);
+                tblAdminMouseClicked(evt);
             }
         });
-        jScrollPane6.setViewportView(tblAkun);
+        jScrollPane8.setViewportView(tblAdmin);
 
-        javax.swing.GroupLayout pnlTblAkunLayout = new javax.swing.GroupLayout(pnlTblAkun);
-        pnlTblAkun.setLayout(pnlTblAkunLayout);
-        pnlTblAkunLayout.setHorizontalGroup(
-            pnlTblAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
-        );
-        pnlTblAkunLayout.setVerticalGroup(
-            pnlTblAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTblAkunLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        tblAkun.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
-        javax.swing.GroupLayout pnlAkunLayout = new javax.swing.GroupLayout(pnlAkun);
-        pnlAkun.setLayout(pnlAkunLayout);
-        pnlAkunLayout.setHorizontalGroup(
-            pnlAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAkunLayout.createSequentialGroup()
-                .addComponent(pnlInputAkun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jButton13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton13.setText("Cari");
+
+        javax.swing.GroupLayout pnlTblAdminLayout = new javax.swing.GroupLayout(pnlTblAdmin);
+        pnlTblAdmin.setLayout(pnlTblAdminLayout);
+        pnlTblAdminLayout.setHorizontalGroup(
+            pnlTblAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTblAdminLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlTblAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane8)
+                    .addGroup(pnlTblAdminLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(tblAkun, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        pnlTblAdminLayout.setVerticalGroup(
+            pnlTblAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTblAdminLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(pnlTblAkun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        pnlAkunLayout.setVerticalGroup(
-            pnlAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAkunLayout.createSequentialGroup()
-                .addGroup(pnlAkunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlTblAkun, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnlAkunLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(pnlInputAkun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGroup(pnlTblAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton13)
+                    .addComponent(tblAkun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
-        pnlUtama.add(pnlAkun, "cardAkun");
+        javax.swing.GroupLayout pnlAdminLayout = new javax.swing.GroupLayout(pnlAdmin);
+        pnlAdmin.setLayout(pnlAdminLayout);
+        pnlAdminLayout.setHorizontalGroup(
+            pnlAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAdminLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(pnlInputAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlTblAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pnlAdminLayout.setVerticalGroup(
+            pnlAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlInputAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnlTblAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pnlUtama.add(pnlAdmin, "cardAkun");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1056,86 +1098,6 @@ public class MFormAdmin extends javax.swing.JFrame {
         hapus2();
     }//GEN-LAST:event_ResetDokActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        String username = txtUsername.getText();
-        String password = txtPassword.getText();
-        String level = "Admin";
-        String nama = txtNamaAkun.getText();
-        String no_hp = txtNomorHpAkun.getText();
-        String email = txtEmailAdmin.getText();
-        String alamat = txtAlamatAkun.getText();
-        Admin admin = new Admin(0,nama,username,password,level,no_hp,email,alamat);
-        exec.ExecuteAdmin eDmin = new exec.ExecuteAdmin();
-        int hasil = eDmin.insertData(admin);
-        if(hasil >0){
-            JOptionPane.showMessageDialog(null, "Data berhasil di simpan");
-            setDataAdmin();
-        }else{
-            JOptionPane.showMessageDialog(null, "Data gagal di simpan");
-        }
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void tblAkunMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAkunMouseClicked
-        // TODO add your handling code here:
-        int row = tblAkun.getSelectedRow();
-        String id_akun = tblAkun.getValueAt(row, 0).toString();
-        String nama = tblAkun.getValueAt(row, 1).toString();
-        String username = tblAkun.getValueAt(row, 2).toString();
-        String pass = tblAkun.getValueAt(row, 3).toString();
-        String level = tblAkun.getValueAt(row, 4).toString();
-        String no_hp = tblAkun.getValueAt(row, 5).toString();
-        String email = tblAkun.getValueAt(row, 6).toString(); 
-        String alamat = tblAkun.getValueAt(row, 7).toString();
-        lblId_Akun.setText(id_akun);
-        txtUsername.setText(username);
-        txtPassword.setText(pass);
-        lblLevel.setText(level);
-        txtNamaAkun.setText(nama);
-        txtNomorHpAkun.setText(no_hp);
-        txtAlamatAkun.setText(alamat);
-        txtEmailAdmin.setText(email);
-    }//GEN-LAST:event_tblAkunMouseClicked
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        String id = lblId_Akun.getText();
-        int id_akun = Integer.parseInt(id);
-        String username = txtUsername.getText();
-        String pass = txtPassword.getText();
-        String nama = txtNamaAkun.getText();
-        String no_hp = txtNomorHpAkun.getText();
-        String alamat = txtAlamatAkun.getText();
-        String email = txtEmailAdmin.getText();
-        Admin admin = new Admin(id_akun,nama,username,pass,"Admin",no_hp,email, alamat);
-        exec.ExecuteAdmin eDmin = new exec.ExecuteAdmin();
-        int hasil = eDmin.ubahData(admin);
-        if(hasil >0){
-            JOptionPane.showMessageDialog(null, "Data berhasil diubah");
-            setDataAdmin();
-        }else{
-            JOptionPane.showMessageDialog(null, "Data gagal diubah");
-        }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-        hapus3();
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        String id_admin = lblId_Akun.getText();
-        exec.ExecuteAdmin eDmin = new exec.ExecuteAdmin();
-        int hasil = eDmin.hapusData(id_admin);
-        if(hasil >0){
-            JOptionPane.showMessageDialog(null, "Data berhasil di hapus"); 
-            setDataAdmin();
-        }else{
-            JOptionPane.showMessageDialog(null, "Data gagal di hapus");
-        }
-    }//GEN-LAST:event_jButton7ActionPerformed
-
     private void ComboStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboStatusActionPerformed
         // TODO add your handling code here:
         String kode;
@@ -1157,9 +1119,89 @@ public class MFormAdmin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ComboStatusActionPerformed
 
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+    private void simpanDok1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanDok1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
+        String level = "Admin";
+        String nama = txtNamaAkun.getText();
+        String no_hp = txtNomorHpAkun.getText();
+        String email = txtEmailAdmin.getText();
+        String alamat = txtAlamatAkun.getText();
+        Admin admin = new Admin(0,nama,username,password,level,no_hp,email,alamat);
+        exec.ExecuteAdmin eDmin = new exec.ExecuteAdmin();
+        int hasil = eDmin.insertData(admin);
+        if(hasil >0){
+            JOptionPane.showMessageDialog(null, "Data berhasil di simpan");
+            setDataAdmin();
+        }else{
+            JOptionPane.showMessageDialog(null, "Data gagal di simpan");
+        }
+    }//GEN-LAST:event_simpanDok1ActionPerformed
+
+    private void UpdateDok1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateDok1ActionPerformed
+        // TODO add your handling code here:
+        String id = lblId_Akun.getText();
+        int id_akun = Integer.parseInt(id);
+        String username = txtUsername.getText();
+        String pass = txtPassword.getText();
+        String nama = txtNamaAkun.getText();
+        String no_hp = txtNomorHpAkun.getText();
+        String alamat = txtAlamatAkun.getText();
+        String email = txtEmailAdmin.getText();
+        Admin admin = new Admin(id_akun,nama,username,pass,"Admin",no_hp,email, alamat);
+        exec.ExecuteAdmin eDmin = new exec.ExecuteAdmin();
+        int hasil = eDmin.ubahData(admin);
+        if(hasil >0){
+            JOptionPane.showMessageDialog(null, "Data berhasil diubah");
+            setDataAdmin();
+        }else{
+            JOptionPane.showMessageDialog(null, "Data gagal diubah");
+        }
+    }//GEN-LAST:event_UpdateDok1ActionPerformed
+
+    private void HapusDok1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusDok1ActionPerformed
+        // TODO add your handling code here:
+        String id_admin = lblId_Akun.getText();
+        exec.ExecuteAdmin eDmin = new exec.ExecuteAdmin();
+        int hasil = eDmin.hapusData(id_admin);
+        if(hasil >0){
+            JOptionPane.showMessageDialog(null, "Data berhasil di hapus"); 
+            setDataAdmin();
+        }else{
+            JOptionPane.showMessageDialog(null, "Data gagal di hapus");
+        }
+    }//GEN-LAST:event_HapusDok1ActionPerformed
+
+    private void ResetDok1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetDok1ActionPerformed
+        // TODO add your handling code here:
+        hapus3();
+    }//GEN-LAST:event_ResetDok1ActionPerformed
+
+    private void tblAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAdminMouseClicked
+        // TODO add your handling code here:
+        int row = tblAdmin.getSelectedRow();
+        String id_Admin = tblAdmin.getValueAt(row, 0).toString();
+        String nama = tblAdmin.getValueAt(row, 1).toString();
+        String username = tblAdmin.getValueAt(row, 2).toString();
+        String password = tblAdmin.getValueAt(row, 3).toString();
+        String level = tblAdmin.getValueAt(row, 4).toString();
+        String no_hp = tblAdmin.getValueAt(row, 5).toString();
+        String email = tblAdmin.getValueAt(row, 6).toString();
+        String alamat = tblAdmin.getValueAt(row, 7).toString();
+        lblId_Akun.setText(id_Admin);
+        txtNamaAkun.setText(nama);
+        txtPassword.setText(password);
+        txtEmailAdmin.setText(email);
+        txtPassword.setText(password);
+        txtNomorHpAkun.setText(no_hp);
+        txtUsername.setText(username);
+        txtAlamatAkun.setText(alamat);
+    }//GEN-LAST:event_tblAdminMouseClicked
+
+    private void jScrollPane8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane8MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jScrollPane8MouseClicked
     private void hapus(){
         txtNama_Pasien.setText("");
         txtAlamatPasien.setText("");
@@ -1171,7 +1213,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         txtNama_Dokter.setText("");
         txtAlamat_Dokter.setText("");
         txtSpesialis_Dokter.setText("");
-        lblId_dokter.setText("");
+        lblId_dokter.setText("0");
     }
     private void hapus3(){
         txtNamaAkun.setText("");
@@ -1181,8 +1223,8 @@ public class MFormAdmin extends javax.swing.JFrame {
         txtAlamatAkun.setText("");
         txtNomorHpAkun.setText("");
         txtEmailAdmin.setText("");
-        lblLevel.setText("");
-        lblId_Akun.setText("");
+        lblLevel.setText("Admin");
+        lblId_Akun.setText("0");
     }
     /**
      * @param args the command line arguments
@@ -1223,74 +1265,78 @@ public class MFormAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboStatus;
     private javax.swing.JButton HapusDok;
+    private javax.swing.JButton HapusDok1;
     private javax.swing.JLabel LblStatusPasien;
     private javax.swing.JButton ResetDok;
+    private javax.swing.JButton ResetDok1;
     private javax.swing.JTextField TxtNoRuangan;
     private javax.swing.JButton UpdateDok;
+    private javax.swing.JButton UpdateDok1;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnSimpan;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblId_Akun;
     private javax.swing.JLabel lblId_Pasien;
     private javax.swing.JLabel lblId_dokter;
     private javax.swing.JLabel lblLevel;
     private javax.swing.JLabel lvlDokter;
-    private javax.swing.JPanel pnlAkun;
+    private javax.swing.JPanel pnlAdmin;
     private javax.swing.JPanel pnlDokter;
-    private javax.swing.JPanel pnlInputAkun;
+    private javax.swing.JPanel pnlInputAdmin;
     private javax.swing.JPanel pnlInputDokter;
     private javax.swing.JPanel pnlInputPasien;
     private javax.swing.JPanel pnlPasien;
-    private javax.swing.JPanel pnlTblAkun;
+    private javax.swing.JPanel pnlTblAdmin;
     private javax.swing.JPanel pnlTblDokter;
     private javax.swing.JPanel pnlTblPasien;
     private javax.swing.JPanel pnlUtama;
     private javax.swing.JButton simpanDok;
-    private javax.swing.JTable tblAkun;
+    private javax.swing.JButton simpanDok1;
+    private javax.swing.JTable tblAdmin;
+    private javax.swing.JTextField tblAkun;
     private javax.swing.JTable tblDokter;
     private javax.swing.JTable tblPasien;
     private javax.swing.JTextArea txtAlamatAkun;
     private javax.swing.JTextArea txtAlamatPasien;
     private javax.swing.JTextArea txtAlamat_Dokter;
+    private javax.swing.JTextField txtCariDokter;
     private javax.swing.JTextField txtEmailAdmin;
     private javax.swing.JTextField txtNamaAkun;
     private javax.swing.JTextField txtNama_Dokter;
