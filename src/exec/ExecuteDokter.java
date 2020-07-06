@@ -1,5 +1,6 @@
 package exec;
 import com.Dokter;
+import com.sun.javafx.font.Disposer;
 import db.ConnectionManager;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import view.LoginAdmin;
+import view.MFormDokter;
 /**
  *
  * @author Ivan Pakpahan
@@ -90,6 +94,26 @@ public class ExecuteDokter {
         try {
             Statement stm = conn.createStatement();
             hasil = stm.executeUpdate(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(ExecuteDokter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        conMan.logOff();
+        return hasil;
+    }
+    public int masukData(String uname,String pwd){
+        String query = "SELECT * from dokter where Username='"+uname+"'AND Password='"+pwd+"'";
+        int hasil = 0;
+        ConnectionManager conMan = new ConnectionManager();
+        Connection conn = conMan.logOn();
+        try {
+            ResultSet as = conn.createStatement().executeQuery(query);
+            if(as.next()){
+                if(uname.equals(as.getString("Username"))&& pwd.equals(as.getString("Password"))){
+                    hasil = hasil + 1 ;
+                }
+            }else{
+                JOptionPane.showMessageDialog(null,"Anda tidak berhasil masuk");
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ExecuteDokter.class.getName()).log(Level.SEVERE, null, ex);
         }
