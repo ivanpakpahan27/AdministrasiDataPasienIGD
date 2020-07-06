@@ -424,9 +424,8 @@ public class MFormAdmin extends javax.swing.JFrame {
         pnlTblPasienLayout.setVerticalGroup(
             pnlTblPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTblPasienLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addGroup(pnlTblPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton14)
                     .addComponent(txtCariPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -447,9 +446,13 @@ public class MFormAdmin extends javax.swing.JFrame {
             pnlPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlPasienLayout.createSequentialGroup()
                 .addGroup(pnlPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlInputPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlTblPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(139, Short.MAX_VALUE))
+                    .addGroup(pnlPasienLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(pnlInputPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlPasienLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(pnlTblPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         pnlUtama.add(pnlPasien, "cardPasien");
