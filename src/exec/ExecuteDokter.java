@@ -24,10 +24,14 @@ public class ExecuteDokter {
             ResultSet rs = stm.executeQuery(query);
             while(rs.next()){
                 Dokter dok = new Dokter();
-                dok.setId_dok(rs.getInt("id_dok"));
-                dok.setNama(rs.getString("nama"));
-                dok.setSpesialis(rs.getString("spesialis"));
-                dok.setAlamat(rs.getString("alamat"));
+                dok.setId_dok(rs.getInt("Id_Dokter"));
+                dok.setNama(rs.getString("Nama"));
+                dok.setSpesialis(rs.getString("Spesialis"));
+                dok.setNo_hp(rs.getString("No_Hp"));
+                dok.setAlamat(rs.getString("Alamat"));
+                dok.setUsername(rs.getString("Username"));
+                dok.setPassword(rs.getString("Password"));
+                dok.setLevel(rs.getString("Level"));
                 lsDokter.add(dok);
             }
         }catch (SQLException ex) {
@@ -38,9 +42,9 @@ public class ExecuteDokter {
     }
     public int insertData(Dokter dok){
         int hasil = 0;
-        String query ="insert into dokter(id_dok, nama, spesialis, alamat)values"
- +"("+dok.getId_dok()+",'"+dok.getNama()+"','"+dok.getSpesialis()
- +"','"+dok.getAlamat()+"')";
+        String query ="insert into dokter(Id_Dokter, Nama, Spesialis,No_Hp, Alamat,Username,Password,Level)values"
+ +"("+dok.getId_dok()+",'"+dok.getNama()+"','"+dok.getSpesialis()+"','"+dok.getNo_hp()
+ +"','"+dok.getAlamat()+"','"+dok.getUsername()+"','"+dok.getPassword()+"','"+dok.getLevel()+"')";
         ConnectionManager conMan = new ConnectionManager();
         Connection conn = conMan.logOn();
         try {
@@ -53,7 +57,7 @@ public class ExecuteDokter {
         return hasil;
     }
     public int hapusData(String id_dok){
-        String query = "Delete from dokter where id_dok="+id_dok+"";
+        String query = "Delete from dokter where Id_Dokter="+id_dok+"";
         int hasil = 0;
         ConnectionManager conMan = new ConnectionManager();
         Connection conn = conMan.logOn();
@@ -70,8 +74,8 @@ public class ExecuteDokter {
         int hasil = 0;
         ConnectionManager conMan = new ConnectionManager();
         Connection conn = conMan.logOn();
-        String query = "Update dokter set nama='"+dok.getNama()+"', spesialis='"+dok.getSpesialis()+
- "', alamat='"+dok.getAlamat()+"' where id_dok="+dok.getId_dok()+"";
+        String query = "Update dokter set Nama='"+dok.getNama()+"', Spesialis='"+dok.getSpesialis()+"',No_Hp='"+dok.getNo_hp()+
+ "', Alamat='"+dok.getAlamat()+"', Username='"+dok.getUsername()+"', Password='"+dok.getPassword()+"', Level='"+dok.getLevel()+"' where Id_Dokter="+dok.getId_dok()+"";
         try {
             Statement stm = conn.createStatement();
             hasil = stm.executeUpdate(query);

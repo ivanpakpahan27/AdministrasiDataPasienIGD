@@ -9,14 +9,23 @@ public class Pasien {
     private String no_hp;
     private String alamat;
     private String status;
+    private String no_ruang;
+    
     public Pasien() {
     }
-    public Pasien(int id_pas, String nama, String no_hp, String alamat, String status) {
+    public Pasien(int id_pas, String nama, String no_hp, String alamat, String status, String no_ruang) {
         this.id_pas = id_pas;
         this.nama = nama;
         this.no_hp = no_hp;
         this.alamat = alamat;
         this.status = status;
+        this.no_ruang = no_ruang;
+    }
+    public String getNo_ruang() {
+        return no_ruang;
+    }
+    public void setNo_ruang(String no_ruang) {
+        this.no_ruang = no_ruang;
     }
     public int getId_pas() {
         return id_pas;

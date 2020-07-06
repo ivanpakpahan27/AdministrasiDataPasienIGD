@@ -27,7 +27,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         String[][] dataPasien = cptb.getPasien();
         tblPasien.setModel(new javax.swing.table.DefaultTableModel(
                 dataPasien,
-                new String [] {"ID", "Nama", "Nomor Hp", "Alamat","Status"})
+                new String [] {"ID", "Nama", "Alamat","Nomor Hp","Status","Ruang"})
         );
     }
     private void setDataDokter(){
@@ -35,7 +35,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         String[][] dataDokter = cdtb.getDokter();
         tblDokter.setModel(new javax.swing.table.DefaultTableModel(
                 dataDokter,
-                new String [] {"ID", "Nama", "Spesialis", "Alamat"})
+                new String [] {"ID", "Nama", "Spesialis","No Hp", "Alamat","Username","Password","Level"})
         );
     }
     private void setDataAdmin(){
@@ -341,20 +341,20 @@ public class MFormAdmin extends javax.swing.JFrame {
         tblPasien.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         tblPasien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
         tblPasien.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -608,6 +608,7 @@ public class MFormAdmin extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblDokter.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tblDokter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblDokterMouseClicked(evt);
@@ -975,11 +976,13 @@ public class MFormAdmin extends javax.swing.JFrame {
         String no_hp = tblPasien.getValueAt(row, 2).toString();
         String alamat = tblPasien.getValueAt(row, 3).toString();
         String status = tblPasien.getValueAt(row, 4).toString();
+        String no_ruang = tblPasien.getValueAt(row, 5).toString();
         lblId_Pasien.setText(id_pasien);
         txtNama_Pasien.setText(nama);
         txtNo_HpPasien.setText(no_hp);
         txtAlamatPasien.setText(alamat);
         LblStatusPasien.setText(status);
+        TxtNoRuangan.setText(no_ruang);
     }//GEN-LAST:event_tblPasienMouseClicked
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
@@ -990,7 +993,8 @@ public class MFormAdmin extends javax.swing.JFrame {
         String no_hp = txtNo_HpPasien.getText();
         String alamat = txtAlamatPasien.getText();
         String status = LblStatusPasien.getText();//
-        Pasien pas = new Pasien(0,nama, no_hp, alamat,status);
+        String no_ruang = TxtNoRuangan.getText();
+        Pasien pas = new Pasien(0,nama, no_hp, alamat,status,no_ruang);
         exec.ExecutePasien ePas = new exec.ExecutePasien();
         int hasil = ePas.insertData(pas);
         if(hasil >0){
@@ -1022,7 +1026,8 @@ public class MFormAdmin extends javax.swing.JFrame {
         String alamat = txtAlamatPasien.getText();
         String status = LblStatusPasien.getText();
         String no_hp = txtNo_HpPasien.getText();
-        Pasien pas = new Pasien(id_pasien,nama, no_hp, alamat,status);
+        String no_ruang = TxtNoRuangan.getText();
+        Pasien pas = new Pasien(id_pasien,nama, no_hp, alamat,status,no_ruang);
         exec.ExecutePasien ePas = new exec.ExecutePasien();
         int hasil = ePas.ubahData(pas);
         if(hasil >0){
@@ -1043,12 +1048,19 @@ public class MFormAdmin extends javax.swing.JFrame {
         int row = tblDokter.getSelectedRow();
         String id_dok = tblDokter.getValueAt(row, 0).toString();
         String nama = tblDokter.getValueAt(row, 1).toString();
-        String no_hp = tblDokter.getValueAt(row, 2).toString();
-        String alamat = tblDokter.getValueAt(row, 3).toString();
+        String spesialis = tblDokter.getValueAt(row, 2).toString();
+        String no_hp = tblDokter.getValueAt(row, 3).toString();
+        String alamat = tblDokter.getValueAt(row, 4).toString();
+        String uname = tblDokter.getValueAt(row, 5).toString();
+        String pass = tblDokter.getValueAt(row, 6).toString();
+        String level = tblDokter.getValueAt(row, 7).toString();
         lblId_dokter.setText(id_dok);
         txtNama_Dokter.setText(nama);
-        txtSpesialis_Dokter.setText(no_hp);
+        txtSpesialis_Dokter.setText(spesialis);
         txtAlamat_Dokter.setText(alamat);
+        txtUsernameDok.setText(uname);
+        txtPasswordDok.setText(pass);
+        lvlDokter.setText(level);
     }//GEN-LAST:event_tblDokterMouseClicked
 
     private void jScrollPane4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane4MouseClicked
@@ -1060,7 +1072,10 @@ public class MFormAdmin extends javax.swing.JFrame {
         String nama = txtNama_Dokter.getText();
         String spesialis = txtSpesialis_Dokter.getText();
         String alamat = txtAlamat_Dokter.getText();
-        Dokter dok = new Dokter(0,nama, spesialis, alamat);
+        String username = txtUsernameDok.getText();
+        String pass = txtPasswordDok.getText();
+        String nohp = txtNoHpDok.getText();
+        Dokter dok = new Dokter(0,nama, spesialis,nohp, alamat,username,pass,"Dokter");
         exec.ExecuteDokter eDok = new exec.ExecuteDokter();
         int hasil = eDok.insertData(dok);
         if(hasil >0){
@@ -1078,7 +1093,10 @@ public class MFormAdmin extends javax.swing.JFrame {
         String nama = txtNama_Dokter.getText();
         String alamat = txtAlamat_Dokter.getText();
         String spesialis = txtSpesialis_Dokter.getText();
-        Dokter dok = new Dokter(id_dok,nama, spesialis, alamat);
+        String username = txtUsernameDok.getText();
+        String pass = txtPasswordDok.getText();
+        String nohp = txtNoHpDok.getText();
+        Dokter dok = new Dokter(id_dok,nama, spesialis,nohp, alamat,username,pass,"Dokter");
         exec.ExecuteDokter eDok = new exec.ExecuteDokter();
         int hasil = eDok.ubahData(dok);
         if(hasil >0){
