@@ -44,10 +44,10 @@ public class LoginDokter extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtUsernameDokterLogin = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
         txtPassDokLog = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,19 +63,18 @@ public class LoginDokter extends javax.swing.JFrame {
         txtUsernameDokterLogin.setBorder(null);
         txtUsernameDokterLogin.setOpaque(false);
 
+        txtPassDokLog.setBorder(null);
+        txtPassDokLog.setOpaque(false);
+
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Kembali");
+        jButton2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        txtPassDokLog.setBorder(null);
-        txtPassDokLog.setOpaque(false);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Login.png"))); // NOI18N
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -87,6 +86,8 @@ public class LoginDokter extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Login.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

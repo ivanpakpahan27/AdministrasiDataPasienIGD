@@ -112,4 +112,24 @@ public class ExecuteAdmin {
         }
         return hasil;
     }
+    public int masukData(String username,String pass){
+        String query = "SELECT * from admin where Username='"+username+"'AND Password='"+pass+"'";
+        int input = 0;
+        ConnectionManager conMan = new ConnectionManager();
+        Connection conn = conMan.logOn();
+        try {
+            ResultSet ab = conn.createStatement().executeQuery(query);
+            if(ab.next()){
+                if(username.equals(ab.getString("Username")) && pass.equals(ab.getString("Password"))){
+                    input = input + 1 ;
+                }
+            }else{
+                input = 0;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ExecuteAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        conMan.logOff();
+        return input;
+    }
 }
