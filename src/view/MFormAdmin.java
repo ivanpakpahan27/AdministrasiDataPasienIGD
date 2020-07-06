@@ -117,7 +117,6 @@ public class MFormAdmin extends javax.swing.JFrame {
         btnHapus = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         ComboStatus = new javax.swing.JComboBox<>();
-        LblStatusPasien = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         TxtNoRuangan = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -354,10 +353,6 @@ public class MFormAdmin extends javax.swing.JFrame {
             }
         });
         pnlInputPasien.add(ComboStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
-
-        LblStatusPasien.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        LblStatusPasien.setText("Merah");
-        pnlInputPasien.add(LblStatusPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 60, 20));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel18.setText("No Ruang");
@@ -1048,7 +1043,6 @@ public class MFormAdmin extends javax.swing.JFrame {
         txtNama_Pasien.setText(nama);
         txtNo_HpPasien.setText(no_hp);
         txtAlamatPasien.setText(alamat);
-        LblStatusPasien.setText(status);
         TxtNoRuangan.setText(no_ruang);
     }//GEN-LAST:event_tblPasienMouseClicked
 
@@ -1059,7 +1053,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         String nama = txtNama_Pasien.getText();
         String no_hp = txtNo_HpPasien.getText();
         String alamat = txtAlamatPasien.getText();
-        String status = LblStatusPasien.getText();//
+        String status = ComboStatus.getSelectedItem().toString();//
         String no_ruang = TxtNoRuangan.getText();
         Pasien pas = new Pasien(0,nama, no_hp, alamat,status,no_ruang);
         exec.ExecutePasien ePas = new exec.ExecutePasien();
@@ -1091,7 +1085,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         int id_pasien = Integer.parseInt(id);
         String nama = txtNama_Pasien.getText();
         String alamat = txtAlamatPasien.getText();
-        String status = LblStatusPasien.getText();
+        String status = ComboStatus.getSelectedItem().toString();
         String no_hp = txtNo_HpPasien.getText();
         String no_ruang = TxtNoRuangan.getText();
         Pasien pas = new Pasien(id_pasien,nama, no_hp, alamat,status,no_ruang);
@@ -1194,23 +1188,6 @@ public class MFormAdmin extends javax.swing.JFrame {
 
     private void ComboStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboStatusActionPerformed
         // TODO add your handling code here:
-        String kode;
-        if (ComboStatus.getSelectedIndex()==0){
-            kode = "Merah";
-            LblStatusPasien.setText(kode);
-        }else if (ComboStatus.getSelectedIndex()==1){
-            kode = "Kuning";
-            LblStatusPasien.setText(kode);
-        }else if (ComboStatus.getSelectedIndex()==2){
-            kode = "Hijau";
-            LblStatusPasien.setText(kode);
-        }else if (ComboStatus.getSelectedIndex()==3){
-            kode = "Putih";
-            LblStatusPasien.setText(kode);
-        }else if (ComboStatus.getSelectedIndex()==4){
-            kode = "Hitam";
-            LblStatusPasien.setText(kode);
-        }
     }//GEN-LAST:event_ComboStatusActionPerformed
 
     private void simpanDok1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanDok1ActionPerformed
@@ -1314,7 +1291,6 @@ public class MFormAdmin extends javax.swing.JFrame {
     private void hapus(){
         txtNama_Pasien.setText("");
         txtAlamatPasien.setText("");
-        LblStatusPasien.setText("");
         txtNo_HpPasien.setText("");
         lblId_Pasien.setText("");
     }
@@ -1375,7 +1351,6 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ComboStatus;
     private javax.swing.JButton HapusDok;
     private javax.swing.JButton HapusDok1;
-    private javax.swing.JLabel LblStatusPasien;
     private javax.swing.JButton ResetDok;
     private javax.swing.JButton ResetDok1;
     private javax.swing.JTextField TxtNoRuangan;
