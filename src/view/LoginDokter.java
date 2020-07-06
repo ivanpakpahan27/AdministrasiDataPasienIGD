@@ -139,14 +139,15 @@ public class LoginDokter extends javax.swing.JFrame {
         String uname = txtUsernameDokterLogin.getText();
         String pwd = String.valueOf(txtPassDokLog.getText());
         exec.ExecuteDokter eDok = new exec.ExecuteDokter();
+        FormLogin flog = new FormLogin();
         int hasil = eDok.masukData(uname,pwd);
         if(hasil >0){
-            JOptionPane.showMessageDialog(null, "Anda berhasil masuk"); 
+            JOptionPane.showMessageDialog(flog,"Anda berhasil login."); 
             MFormDokter Fdok = new MFormDokter();
             Fdok.setVisible(true);
             dispose();
         }else{
-            JOptionPane.showMessageDialog(null, "Pastikan sudah teregistrasi");
+            JOptionPane.showMessageDialog(flog,"Gagal masuk, pastikan data sudah terdaftar.","Gagal",JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

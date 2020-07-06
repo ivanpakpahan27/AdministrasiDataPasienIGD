@@ -112,7 +112,7 @@ public class ExecuteDokter {
                     hasil = hasil + 1 ;
                 }
             }else{
-                JOptionPane.showMessageDialog(null,"Anda tidak berhasil masuk");
+                hasil = 0;
             }
         } catch (SQLException ex) {
             Logger.getLogger(ExecuteDokter.class.getName()).log(Level.SEVERE, null, ex);
