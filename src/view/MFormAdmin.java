@@ -85,6 +85,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         LblStatusPasien = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         TxtNoRuangan = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         pnlTblPasien = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPasien = new javax.swing.JTable();
@@ -142,6 +143,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         tblAdmin = new javax.swing.JTable();
         tblAkun = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -237,32 +239,32 @@ public class MFormAdmin extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Nama");
-        pnlInputPasien.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+        pnlInputPasien.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Nomor Hp");
-        pnlInputPasien.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+        pnlInputPasien.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Alamat");
-        pnlInputPasien.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        pnlInputPasien.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Status");
-        pnlInputPasien.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        pnlInputPasien.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         txtNama_Pasien.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        pnlInputPasien.add(txtNama_Pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 220, -1));
+        pnlInputPasien.add(txtNama_Pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 220, -1));
 
         txtNo_HpPasien.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        pnlInputPasien.add(txtNo_HpPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 220, -1));
+        pnlInputPasien.add(txtNo_HpPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 220, -1));
 
         txtAlamatPasien.setColumns(20);
         txtAlamatPasien.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtAlamatPasien.setRows(5);
         jScrollPane1.setViewportView(txtAlamatPasien);
 
-        pnlInputPasien.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 220, 90));
+        pnlInputPasien.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 220, 90));
 
         btnSimpan.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnSimpan.setText("Simpan");
@@ -314,18 +316,21 @@ public class MFormAdmin extends javax.swing.JFrame {
                 ComboStatusActionPerformed(evt);
             }
         });
-        pnlInputPasien.add(ComboStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
+        pnlInputPasien.add(ComboStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
 
         LblStatusPasien.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         LblStatusPasien.setText("Merah");
-        pnlInputPasien.add(LblStatusPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 60, 20));
+        pnlInputPasien.add(LblStatusPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 60, 20));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel18.setText("No Ruang");
-        pnlInputPasien.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+        pnlInputPasien.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
         TxtNoRuangan.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        pnlInputPasien.add(TxtNoRuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 220, -1));
+        pnlInputPasien.add(TxtNoRuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 220, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/unnamed.png"))); // NOI18N
+        pnlInputPasien.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 310));
 
         pnlTblPasien.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -365,15 +370,15 @@ public class MFormAdmin extends javax.swing.JFrame {
             pnlTblPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTblPasienLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
                 .addGap(29, 29, 29))
         );
         pnlTblPasienLayout.setVerticalGroup(
             pnlTblPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblPasienLayout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+            .addGroup(pnlTblPasienLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlPasienLayout = new javax.swing.GroupLayout(pnlPasien);
@@ -382,7 +387,7 @@ public class MFormAdmin extends javax.swing.JFrame {
             pnlPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlPasienLayout.createSequentialGroup()
                 .addComponent(pnlInputPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(pnlTblPasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -390,9 +395,9 @@ public class MFormAdmin extends javax.swing.JFrame {
             pnlPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlPasienLayout.createSequentialGroup()
                 .addGroup(pnlPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlTblPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlInputPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(181, Short.MAX_VALUE))
+                    .addComponent(pnlInputPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlTblPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         pnlUtama.add(pnlPasien, "cardPasien");
@@ -816,21 +821,21 @@ public class MFormAdmin extends javax.swing.JFrame {
                 .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNomorHpAkun, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEmailAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmailAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                     .addComponent(jLabel29))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(pnlInputAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(simpanDok1)
                     .addComponent(UpdateDok1)
                     .addComponent(HapusDok1)
                     .addComponent(ResetDok1))
-                .addGap(58, 58, 58))
+                .addGap(71, 71, 71))
         );
 
         pnlTblAdmin.setBackground(new java.awt.Color(255, 255, 255));
@@ -901,7 +906,7 @@ public class MFormAdmin extends javax.swing.JFrame {
                 .addGroup(pnlTblAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton13)
                     .addComponent(tblAkun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlAdminLayout = new javax.swing.GroupLayout(pnlAdmin);
@@ -922,6 +927,9 @@ public class MFormAdmin extends javax.swing.JFrame {
 
         pnlUtama.add(pnlAdmin, "cardAkun");
 
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/unnamed.png"))); // NOI18N
+        pnlUtama.add(jLabel8, "card6");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -934,10 +942,11 @@ public class MFormAdmin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlUtama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlUtama, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -1305,6 +1314,8 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
