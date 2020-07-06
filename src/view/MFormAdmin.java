@@ -55,9 +55,27 @@ public class MFormAdmin extends javax.swing.JFrame {
                 new String [] {"ID", "Nama", "Spesialis","No Hp", "Alamat","Username","Password","Level"})
         );
     }
+    private void setDataDokter1(){
+        ConvertDokterToObject cdtb = new ConvertDokterToObject();
+        String id_dokter = txtCariDokter.getText();
+        String[][] dataDokter = cdtb.getOneDokter(id_dokter);
+        tblDokter.setModel(new javax.swing.table.DefaultTableModel(
+                dataDokter,
+                new String [] {"ID", "Nama", "Spesialis","No Hp", "Alamat","Username","Password","Level"})
+        );
+    }
     private void setDataAdmin(){
         ConvertAdminToObject catb = new ConvertAdminToObject();
         String[][] dataAdmin = catb.getAdmin();
+        tblAdmin.setModel(new javax.swing.table.DefaultTableModel(
+                dataAdmin,
+                new String [] {"ID", "Nama", "Username", "Password","Level","Nomor Hp","Email","Alamat"})
+        );
+    }
+    private void setDataAdmin1(){
+        ConvertAdminToObject catb = new ConvertAdminToObject();
+        String id_admin = txtCariAdmin.getText();
+        String[][] dataAdmin = catb.getOneAdmin(id_admin);
         tblAdmin.setModel(new javax.swing.table.DefaultTableModel(
                 dataAdmin,
                 new String [] {"ID", "Nama", "Username", "Password","Level","Nomor Hp","Email","Alamat"})
@@ -160,7 +178,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         pnlTblAdmin = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         tblAdmin = new javax.swing.JTable();
-        tblAkun = new javax.swing.JTextField();
+        txtCariAdmin = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
@@ -659,6 +677,11 @@ public class MFormAdmin extends javax.swing.JFrame {
 
         jButton12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton12.setText("Cari");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlTblDokterLayout = new javax.swing.GroupLayout(pnlTblDokter);
         pnlTblDokter.setLayout(pnlTblDokterLayout);
@@ -917,10 +940,15 @@ public class MFormAdmin extends javax.swing.JFrame {
         });
         jScrollPane8.setViewportView(tblAdmin);
 
-        tblAkun.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txtCariAdmin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         jButton13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton13.setText("Cari");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlTblAdminLayout = new javax.swing.GroupLayout(pnlTblAdmin);
         pnlTblAdmin.setLayout(pnlTblAdminLayout);
@@ -932,7 +960,7 @@ public class MFormAdmin extends javax.swing.JFrame {
                     .addComponent(jScrollPane8)
                     .addGroup(pnlTblAdminLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(tblAkun, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCariAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -945,7 +973,7 @@ public class MFormAdmin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(pnlTblAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton13)
-                    .addComponent(tblAkun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCariAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1273,6 +1301,16 @@ public class MFormAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         setDataPasien1();
     }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        setDataAdmin1();
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        setDataDokter1();
+    }//GEN-LAST:event_jButton12ActionPerformed
     private void hapus(){
         txtNama_Pasien.setText("");
         txtAlamatPasien.setText("");
@@ -1404,12 +1442,12 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JButton simpanDok;
     private javax.swing.JButton simpanDok1;
     private javax.swing.JTable tblAdmin;
-    private javax.swing.JTextField tblAkun;
     private javax.swing.JTable tblDokter;
     private javax.swing.JTable tblPasien;
     private javax.swing.JTextArea txtAlamatAkun;
     private javax.swing.JTextArea txtAlamatPasien;
     private javax.swing.JTextArea txtAlamat_Dokter;
+    private javax.swing.JTextField txtCariAdmin;
     private javax.swing.JTextField txtCariDokter;
     private javax.swing.JTextField txtCariPasien;
     private javax.swing.JTextField txtEmailAdmin;
