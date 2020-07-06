@@ -24,5 +24,23 @@ public class ConvertPasienToObject {
         }
         return dataPasien;
     }
+    public String[][] getOnePasien(String id_pasien){
+        List<Pasien> pasien = new ArrayList<Pasien>();
+        ExecutePasien ePas = new ExecutePasien();
+        pasien = ePas.getOnePasien(id_pasien);
+        String[][] dataOnePasien = new String[pasien.size()][6];
+        int i=0;
+        for(Pasien pas : pasien){
+            dataOnePasien[i][0] = ""+pas.getId_pas();
+            dataOnePasien[i][1] = pas.getNama();
+            dataOnePasien[i][2]= pas.getAlamat();
+            dataOnePasien[i][3]= pas.getNo_hp();
+            dataOnePasien[i][4]= pas.getStatus();
+            dataOnePasien[i][5]= pas.getNo_ruang();
+            i++;
+        }
+        return dataOnePasien;
+    }
+        
  }
 

@@ -38,6 +38,30 @@ public class ExecutePasien {
         conMan.logOff();
         return lsPasien;
     }
+    public List<Pasien> getOnePasien(String id_pasien){
+        String query = "select * from pasien where Id_Pasien="+id_pasien+"";;
+        ConnectionManager conMan = new ConnectionManager();
+        List<Pasien> lsPasien = new ArrayList<Pasien>();
+        Connection conn = conMan.logOn();
+        try {
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(query);
+            while(rs.next()){
+                Pasien pas = new Pasien();
+                pas.setId_pas(rs.getInt("Id_Pasien"));
+                pas.setNama(rs.getString("Nama"));
+                pas.setNo_hp(rs.getString("No_Hp"));
+                pas.setAlamat(rs.getString("Alamat"));
+                pas.setStatus(rs.getString("Status"));
+                pas.setNo_ruang(rs.getString("No_Ruangan"));
+                lsPasien.add(pas);
+            }
+        }catch (SQLException ex) {
+            Logger.getLogger(ExecutePasien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        conMan.logOff();
+        return lsPasien;
+    }
     public int insertData(Pasien pas){
         int hasil = 0;
         String query ="insert into pasien(Id_Pasien, Nama, No_Hp, Alamat, Status,No_Ruangan)values"

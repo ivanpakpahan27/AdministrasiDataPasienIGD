@@ -5,8 +5,15 @@ import com.ConvertAdminToObject;
 import com.Pasien;
 import com.Dokter;
 import com.Admin;
+import db.ConnectionManager;
+import exec.ExecutePasien;
 import java.awt.CardLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Ivan Pakpahan
@@ -30,6 +37,16 @@ public class MFormAdmin extends javax.swing.JFrame {
                 new String [] {"ID", "Nama", "Alamat","Nomor Hp","Status","Ruang"})
         );
     }
+    private void setDataPasien1(){
+        ConvertPasienToObject cptb = new ConvertPasienToObject();
+        String id_pasien = txtCariPasien.getText();
+        String[][] dataPasien = cptb.getOnePasien(id_pasien);
+        tblPasien.setModel(new javax.swing.table.DefaultTableModel(
+                dataPasien,
+                new String [] {"ID", "Nama", "Alamat","Nomor Hp","Status","Ruang"})
+        );
+    }
+    
     private void setDataDokter(){
         ConvertDokterToObject cdtb = new ConvertDokterToObject();
         String[][] dataDokter = cdtb.getDokter();
@@ -89,6 +106,8 @@ public class MFormAdmin extends javax.swing.JFrame {
         pnlTblPasien = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPasien = new javax.swing.JTable();
+        txtCariPasien = new javax.swing.JTextField();
+        jButton14 = new javax.swing.JButton();
         pnlDokter = new javax.swing.JPanel();
         pnlInputDokter = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -364,13 +383,29 @@ public class MFormAdmin extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblPasien);
 
+        txtCariPasien.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        jButton14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton14.setText("Cari");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlTblPasienLayout = new javax.swing.GroupLayout(pnlTblPasien);
         pnlTblPasien.setLayout(pnlTblPasienLayout);
         pnlTblPasienLayout.setHorizontalGroup(
             pnlTblPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTblPasienLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblPasienLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+                .addGroup(pnlTblPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlTblPasienLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(txtCariPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE))
                 .addGap(29, 29, 29))
         );
         pnlTblPasienLayout.setVerticalGroup(
@@ -378,7 +413,11 @@ public class MFormAdmin extends javax.swing.JFrame {
             .addGroup(pnlTblPasienLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlTblPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton14)
+                    .addComponent(txtCariPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlPasienLayout = new javax.swing.GroupLayout(pnlPasien);
@@ -1229,6 +1268,11 @@ public class MFormAdmin extends javax.swing.JFrame {
     private void jScrollPane8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane8MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jScrollPane8MouseClicked
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+        setDataPasien1();
+    }//GEN-LAST:event_jButton14ActionPerformed
     private void hapus(){
         txtNama_Pasien.setText("");
         txtAlamatPasien.setText("");
@@ -1307,6 +1351,7 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1366,6 +1411,7 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JTextArea txtAlamatPasien;
     private javax.swing.JTextArea txtAlamat_Dokter;
     private javax.swing.JTextField txtCariDokter;
+    private javax.swing.JTextField txtCariPasien;
     private javax.swing.JTextField txtEmailAdmin;
     private javax.swing.JTextField txtNamaAkun;
     private javax.swing.JTextField txtNama_Dokter;
