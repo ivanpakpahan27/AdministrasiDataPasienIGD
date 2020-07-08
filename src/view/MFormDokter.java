@@ -5,6 +5,24 @@
  */
 package view;
 
+import com.ConvertDokterToObject;
+import com.ConvertPasienToObject;
+import com.Dokter;
+import com.Pasien;
+import db.ConnectionManager;
+import exec.ExecuteDokter;
+import exec.ExecutePasien;
+import java.awt.CardLayout;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import view.FormLogin;
+
 /**
  *
  * @author Ivan Pakpahan
@@ -17,7 +35,43 @@ public class MFormDokter extends javax.swing.JFrame {
     public MFormDokter() {
         initComponents();
     }
-
+    public MFormDokter(String para,String pwd){
+        initComponents();
+        jLabel2.setText("Hai "+para);
+        jLabel4.setText(pwd);
+        jLabel10.setText(para);
+        /*ConvertDokterToObject cdtb = new ConvertDokterToObject();
+        String[][] dataDokter = cdtb.getProfilDokter(para,pwd);
+        tblProfil.setModel(new javax.swing.table.DefaultTableModel(
+                dataDokter,
+                new String [] {"ID", "Nama", "Spesialis","No Hp", "Alamat","Username","Password","Level"})
+        );*/
+        List<Dokter> dokter = new ArrayList<Dokter>();
+        ExecuteDokter edok = new ExecuteDokter();
+        dokter = edok.getProfilDokter(para, pwd);
+        String[][] dataDokter = new String[dokter.size()][8];
+        int i=0;
+        for(Dokter dok : dokter){
+            dataDokter[i][0] = ""+dok.getId_dok();
+            dataDokter[i][1] = dok.getNama();
+            String nama = dok.getNama();
+            dataDokter[i][2]= dok.getSpesialis();
+            txtProfilNamaDok.setText(dok.getNama());
+            txtProfilHpDok.setText(dok.getNo_hp());
+            txtProfilAlamatDok.setText(dok.getAlamat());
+            txtProfilUname.setText(dok.getUsername());
+            txtProfilPassDok.setText(dok.getPassword());
+            jLabel4.setText(dok.getSpesialis());
+            jLabel10.setText(dok.getLevel());
+            dataDokter[i][3]= dok.getNo_hp();
+            dataDokter[i][4]= dok.getAlamat();
+            dataDokter[i][5]= dok.getUsername();
+            dataDokter[i][6]= dok.getPassword();
+            dataDokter[i][7]= dok.getLevel();
+            i++;
+        }    
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,22 +81,233 @@ public class MFormDokter extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToolBar1 = new javax.swing.JToolBar();
+        jButton7 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        PanelUtama = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        pnlProfil = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtProfilNamaDok = new javax.swing.JTextField();
+        txtProfilHpDok = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtProfilAlamatDok = new javax.swing.JTextArea();
+        txtProfilUname = new javax.swing.JTextField();
+        txtProfilPassDok = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 255, 255));
+
+        jToolBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jToolBar1.setFloatable(false);
+        jToolBar1.setRollover(true);
+        jToolBar1.setBorderPainted(false);
+
+        jButton7.setBackground(new java.awt.Color(255, 255, 255));
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Admin.png"))); // NOI18N
+        jButton7.setText("Profil");
+        jButton7.setFocusable(false);
+        jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton7);
+
+        jButton6.setBackground(new java.awt.Color(255, 255, 255));
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ST.png"))); // NOI18N
+        jButton6.setText("Input Surat");
+        jButton6.setFocusable(false);
+        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton6);
+
+        PanelUtama.setLayout(new java.awt.CardLayout());
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel2.setText("Halo selamat datang...");
+        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        PanelUtama.add(jLabel2, "card4");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setText("Nama");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setText("No hp");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setText("Alamat");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setText("Username");
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setText("Password");
+
+        txtProfilNamaDok.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        txtProfilHpDok.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        txtProfilAlamatDok.setColumns(20);
+        txtProfilAlamatDok.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txtProfilAlamatDok.setRows(5);
+        jScrollPane3.setViewportView(txtProfilAlamatDok);
+
+        txtProfilUname.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        txtProfilPassDok.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setText("Ubah");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setText("Spesialis");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setText("Level");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setText("jLabel4");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel10.setText("jLabel10");
+
+        javax.swing.GroupLayout pnlProfilLayout = new javax.swing.GroupLayout(pnlProfil);
+        pnlProfil.setLayout(pnlProfilLayout);
+        pnlProfilLayout.setHorizontalGroup(
+            pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlProfilLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlProfilLayout.createSequentialGroup()
+                        .addGroup(pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel7))
+                        .addGroup(pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlProfilLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(txtProfilUname, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlProfilLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlProfilLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtProfilPassDok, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(pnlProfilLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(45, 45, 45)
+                        .addComponent(txtProfilHpDok))
+                    .addGroup(pnlProfilLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(44, 44, 44)
+                        .addComponent(txtProfilNamaDok)))
+                .addGap(34, 34, 34)
+                .addGroup(pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel10))
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
+        pnlProfilLayout.setVerticalGroup(
+            pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlProfilLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtProfilNamaDok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4))
+                .addGap(11, 11, 11)
+                .addGroup(pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtProfilHpDok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel10))
+                .addGroup(pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlProfilLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel7))
+                    .addGroup(pnlProfilLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(txtProfilUname, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(txtProfilPassDok, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
+
+        PanelUtama.add(pnlProfil, "cardProfil");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(PanelUtama, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 279, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 707, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addComponent(PanelUtama, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 314, Short.MAX_VALUE)))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        cl = (CardLayout) PanelUtama.getLayout();
+        cl.show(PanelUtama, "cardProfil");
+  
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,7 +344,29 @@ public class MFormDokter extends javax.swing.JFrame {
             }
         });
     }
-
+    private CardLayout cl;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelUtama;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JPanel pnlProfil;
+    private javax.swing.JTextArea txtProfilAlamatDok;
+    private javax.swing.JTextField txtProfilHpDok;
+    private javax.swing.JTextField txtProfilNamaDok;
+    private javax.swing.JTextField txtProfilPassDok;
+    private javax.swing.JTextField txtProfilUname;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,6 +2,7 @@ package view;
 import com.ConvertDokterToObject;
 import com.ConvertPasienToObject;
 import com.ConvertAdminToObject;
+import com.ConvertSuratToObject;
 import com.Pasien;
 import com.Dokter;
 import com.Admin;
@@ -14,6 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.awt.print.PrinterException;
+import java.text.MessageFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable.PrintMode;
 /**
  *
  * @author Ivan Pakpahan
@@ -27,6 +33,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         setDataPasien();
         setDataDokter();
         setDataAdmin();
+        setDataSurat();
         
     }
     private void setDataPasien(){
@@ -41,9 +48,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         ConvertPasienToObject cptb = new ConvertPasienToObject();
         String id_pasien = txtCariPasien.getText();
         String[][] dataPasien = cptb.getOnePasien(id_pasien);
-        tblPasien.setModel(new javax.swing.table.DefaultTableModel(
-                dataPasien,
-                new String [] {"ID", "Nama", "Alamat","Nomor Hp","Status","Ruang"})
+        tblPasien.setModel(new javax.swing.table.DefaultTableModel(dataPasien,new String [] {"ID", "Nama", "Alamat","Nomor Hp","Status","Ruang"})
         );
     }
     
@@ -79,6 +84,14 @@ public class MFormAdmin extends javax.swing.JFrame {
         tblAdmin.setModel(new javax.swing.table.DefaultTableModel(
                 dataAdmin,
                 new String [] {"ID", "Nama", "Username", "Password","Level","Nomor Hp","Email","Alamat"})
+        );
+    }
+    private void setDataSurat(){
+        ConvertSuratToObject cstb = new ConvertSuratToObject();
+        String[][] dataSurat = cstb.getSurat();
+        tblSurat.setModel(new javax.swing.table.DefaultTableModel(
+                dataSurat,
+                new String [] {"ID", "Keterangan", "ID Dokter", "ID Pasien"})
         );
     }
     /**
@@ -152,6 +165,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         tblDokter = new javax.swing.JTable();
         txtCariDokter = new javax.swing.JTextField();
         jButton12 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         pnlAdmin = new javax.swing.JPanel();
         pnlInputAdmin = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -180,6 +194,13 @@ public class MFormAdmin extends javax.swing.JFrame {
         txtCariAdmin = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        pnlSurat = new javax.swing.JPanel();
+        pnlTampilSurat = new javax.swing.JPanel();
+        lblLevel1 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        tblSurat = new javax.swing.JTable();
+        txtCariAdmin1 = new javax.swing.JTextField();
+        jButton15 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -241,6 +262,11 @@ public class MFormAdmin extends javax.swing.JFrame {
         jButton9.setFocusable(false);
         jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jButton9);
 
         jButton10.setBackground(new java.awt.Color(255, 255, 255));
@@ -418,7 +444,7 @@ public class MFormAdmin extends javax.swing.JFrame {
                         .addComponent(txtCariPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 673, Short.MAX_VALUE))
                 .addGap(29, 29, 29))
         );
         pnlTblPasienLayout.setVerticalGroup(
@@ -681,20 +707,29 @@ public class MFormAdmin extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton5.setText("Cetak");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlTblDokterLayout = new javax.swing.GroupLayout(pnlTblDokter);
         pnlTblDokter.setLayout(pnlTblDokterLayout);
         pnlTblDokterLayout.setHorizontalGroup(
             pnlTblDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTblDokterLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblDokterLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblDokterLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlTblDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4)
-                    .addGroup(pnlTblDokterLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblDokterLayout.createSequentialGroup()
                         .addComponent(txtCariDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         pnlTblDokterLayout.setVerticalGroup(
             pnlTblDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -705,6 +740,8 @@ public class MFormAdmin extends javax.swing.JFrame {
                 .addGroup(pnlTblDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton12)
                     .addComponent(txtCariDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -952,16 +989,15 @@ public class MFormAdmin extends javax.swing.JFrame {
         pnlTblAdmin.setLayout(pnlTblAdminLayout);
         pnlTblAdminLayout.setHorizontalGroup(
             pnlTblAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTblAdminLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlTblAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8)
-                    .addGroup(pnlTblAdminLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblAdminLayout.createSequentialGroup()
+                .addGroup(pnlTblAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTblAdminLayout.createSequentialGroup()
+                        .addContainerGap(324, Short.MAX_VALUE)
                         .addComponent(txtCariAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addGap(6, 6, 6))
         );
         pnlTblAdminLayout.setVerticalGroup(
             pnlTblAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -995,6 +1031,96 @@ public class MFormAdmin extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/unnamed.png"))); // NOI18N
         pnlUtama.add(jLabel8, "card6");
+
+        pnlSurat.setBackground(new java.awt.Color(255, 255, 255));
+        pnlSurat.setName("cardSurat"); // NOI18N
+
+        pnlTampilSurat.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblLevel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblLevel1.setText("Surat Rujukan");
+
+        jScrollPane10.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jScrollPane10MouseClicked(evt);
+            }
+        });
+
+        tblSurat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblSurat.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tblSurat.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tblSurat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblSuratMouseClicked(evt);
+            }
+        });
+        jScrollPane10.setViewportView(tblSurat);
+
+        javax.swing.GroupLayout pnlTampilSuratLayout = new javax.swing.GroupLayout(pnlTampilSurat);
+        pnlTampilSurat.setLayout(pnlTampilSuratLayout);
+        pnlTampilSuratLayout.setHorizontalGroup(
+            pnlTampilSuratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTampilSuratLayout.createSequentialGroup()
+                .addGroup(pnlTampilSuratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLevel1))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        pnlTampilSuratLayout.setVerticalGroup(
+            pnlTampilSuratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTampilSuratLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lblLevel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        txtCariAdmin1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        jButton15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton15.setText("Cari");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlSuratLayout = new javax.swing.GroupLayout(pnlSurat);
+        pnlSurat.setLayout(pnlSuratLayout);
+        pnlSuratLayout.setHorizontalGroup(
+            pnlSuratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSuratLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(pnlSuratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSuratLayout.createSequentialGroup()
+                        .addComponent(txtCariAdmin1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlTampilSurat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(478, 478, 478))
+        );
+        pnlSuratLayout.setVerticalGroup(
+            pnlSuratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSuratLayout.createSequentialGroup()
+                .addComponent(pnlTampilSurat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlSuratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCariAdmin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton15))
+                .addGap(0, 117, Short.MAX_VALUE))
+        );
+
+        pnlUtama.add(pnlSurat, "cardSurat");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1291,6 +1417,33 @@ public class MFormAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         setDataDokter1();
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void tblSuratMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSuratMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblSuratMouseClicked
+
+    private void jScrollPane10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane10MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jScrollPane10MouseClicked
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        cl = (CardLayout) pnlUtama.getLayout();
+        cl.show(pnlUtama, "cardSurat");
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        try {
+            tblDokter.print(PrintMode.FIT_WIDTH, new MessageFormat("DATA DOKTER"),null);
+        } catch (PrinterException ex) {
+            Logger.getLogger(MFormAdmin.class.getName()).log(Level.SEVERE,null, ex);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
     private void hapus(){
         txtNama_Pasien.setText("");
         txtAlamatPasien.setText("");
@@ -1368,9 +1521,11 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1396,6 +1551,7 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1406,6 +1562,7 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel lblId_Pasien;
     private javax.swing.JLabel lblId_dokter;
     private javax.swing.JLabel lblLevel;
+    private javax.swing.JLabel lblLevel1;
     private javax.swing.JLabel lvlDokter;
     private javax.swing.JPanel pnlAdmin;
     private javax.swing.JPanel pnlDokter;
@@ -1413,6 +1570,8 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel pnlInputDokter;
     private javax.swing.JPanel pnlInputPasien;
     private javax.swing.JPanel pnlPasien;
+    private javax.swing.JPanel pnlSurat;
+    private javax.swing.JPanel pnlTampilSurat;
     private javax.swing.JPanel pnlTblAdmin;
     private javax.swing.JPanel pnlTblDokter;
     private javax.swing.JPanel pnlTblPasien;
@@ -1422,10 +1581,12 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JTable tblAdmin;
     private javax.swing.JTable tblDokter;
     private javax.swing.JTable tblPasien;
+    private javax.swing.JTable tblSurat;
     private javax.swing.JTextArea txtAlamatAkun;
     private javax.swing.JTextArea txtAlamatPasien;
     private javax.swing.JTextArea txtAlamat_Dokter;
     private javax.swing.JTextField txtCariAdmin;
+    private javax.swing.JTextField txtCariAdmin1;
     private javax.swing.JTextField txtCariDokter;
     private javax.swing.JTextField txtCariPasien;
     private javax.swing.JTextField txtEmailAdmin;

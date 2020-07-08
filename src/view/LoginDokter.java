@@ -62,6 +62,11 @@ public class LoginDokter extends javax.swing.JFrame {
         txtUsernameDokterLogin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtUsernameDokterLogin.setBorder(null);
         txtUsernameDokterLogin.setOpaque(false);
+        txtUsernameDokterLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsernameDokterLoginActionPerformed(evt);
+            }
+        });
 
         txtPassDokLog.setBorder(null);
         txtPassDokLog.setOpaque(false);
@@ -149,8 +154,10 @@ public class LoginDokter extends javax.swing.JFrame {
         FormLogin flog = new FormLogin();
         int hasil = eDok.masukData(uname,pwd);
         if(hasil >0){
-            JOptionPane.showMessageDialog(flog,"Anda berhasil login."); 
-            MFormDokter Fdok = new MFormDokter();
+            JOptionPane.showMessageDialog(flog,"Anda berhasil login.");
+            String msg = txtUsernameDokterLogin.getText();
+            String pass = String.valueOf(txtPassDokLog.getText());
+            MFormDokter Fdok = new MFormDokter(msg,pass);
             Fdok.setVisible(true);
             dispose();
         }else{
@@ -164,6 +171,10 @@ public class LoginDokter extends javax.swing.JFrame {
         fLog.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtUsernameDokterLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameDokterLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsernameDokterLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,6 +221,6 @@ public class LoginDokter extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField txtPassDokLog;
-    private javax.swing.JTextField txtUsernameDokterLogin;
+    public static javax.swing.JTextField txtUsernameDokterLogin;
     // End of variables declaration//GEN-END:variables
 }
