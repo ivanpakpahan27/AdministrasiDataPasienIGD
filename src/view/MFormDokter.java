@@ -573,7 +573,7 @@ public class MFormDokter extends javax.swing.JFrame {
         Integer IdDokter = Integer.parseInt(jLabel12.getText());
         Integer IdPasien = Integer.parseInt(jLabel16.getText());
         System.out.println("Please Enter The Position");
-        Surat sur = new Surat(0,Ket, IdDokter, IdPasien);
+        Surat sur = new Surat(0,Ket, IdDokter, IdPasien,"");
         exec.ExecuteSurat eSur = new exec.ExecuteSurat();
         int hasil = eSur.insertData(sur);
         if(hasil >0){

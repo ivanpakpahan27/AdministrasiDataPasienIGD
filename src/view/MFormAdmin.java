@@ -91,7 +91,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         String[][] dataSurat = cstb.getSurat();
         tblSurat.setModel(new javax.swing.table.DefaultTableModel(
                 dataSurat,
-                new String [] {"ID", "Keterangan", "ID Dokter", "ID Pasien"})
+                new String [] {"ID", "Keterangan", "ID Dokter", "ID Pasien","Nama Pasien"})
         );
     }
     /**

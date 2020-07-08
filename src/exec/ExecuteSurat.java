@@ -17,7 +17,9 @@ import java.util.logging.Logger;
  */
 public class ExecuteSurat {
     public List<Surat> getAllSurat(){
-        String query = "select * from surat_tindakan";
+        String query = "select surat_tindakan.Id_ST,surat_tindakan.Keterangan,"
+                + "surat_tindakan.Id_Dokter,surat_tindakan.Id_Pasien,pasien.Nama "
+                + "from surat_tindakan,pasien WHERE surat_tindakan.Id_Pasien=pasien.Id_Pasien";
         ConnectionManager conMan = new ConnectionManager();
         List<Surat> lsSurat = new ArrayList<Surat>();
         Connection conn = conMan.logOn();
@@ -26,10 +28,11 @@ public class ExecuteSurat {
             ResultSet rs = stm.executeQuery(query);
             while(rs.next()){
                 Surat sr = new Surat();
-                sr.setId_surat(rs.getInt("Id_ST"));
-                sr.setKeterangan(rs.getString("Keterangan"));
-                sr.setId_dok(rs.getInt("Id_Dokter"));
-                sr.setId_pas(rs.getInt("Id_Pasien"));
+                sr.setId_surat(rs.getInt("surat_tindakan.Id_ST"));
+                sr.setKeterangan(rs.getString("surat_tindakan.Keterangan"));
+                sr.setId_dok(rs.getInt("surat_tindakan.Id_Dokter"));
+                sr.setId_pas(rs.getInt("surat_tindakan.Id_Pasien"));
+                sr.setFknamaPas(rs.getString("pasien.Nama"));
                 lsSurat.add(sr);
             }
         }catch (SQLException ex) {

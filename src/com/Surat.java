@@ -9,19 +9,29 @@ public class Surat {
     private String keterangan;
     private int id_dok;
     private int id_pas;
+    private String fknamaPas;
 
     public Surat() {
     }
 
-    public Surat(int id_surat, String keterangan, int id_dok, int id_pas) {
+    public Surat(int id_surat, String keterangan, int id_dok, int id_pas,String fknamaPas) {
         this.id_surat = id_surat;
         this.keterangan = keterangan;
         this.id_dok = id_dok;
         this.id_pas = id_pas;
+        this.fknamaPas = fknamaPas;
     }
 
     public int getId_surat() {
         return id_surat;
+    }
+
+    public String getFknamaPas() {
+        return fknamaPas;
+    }
+
+    public void setFknamaPas(String fknamaPas) {
+        this.fknamaPas = fknamaPas;
     }
 
     public void setId_surat(int id_surat) {
