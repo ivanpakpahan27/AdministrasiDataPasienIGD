@@ -138,6 +138,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         tblPasien = new javax.swing.JTable();
         txtCariPasien = new javax.swing.JTextField();
         jButton14 = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
         pnlDokter = new javax.swing.JPanel();
         pnlInputDokter = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -166,6 +167,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         txtCariDokter = new javax.swing.JTextField();
         jButton12 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
         pnlAdmin = new javax.swing.JPanel();
         pnlInputAdmin = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -193,6 +195,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         tblAdmin = new javax.swing.JTable();
         txtCariAdmin = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         pnlSurat = new javax.swing.JPanel();
         pnlTampilSurat = new javax.swing.JPanel();
@@ -351,6 +354,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         pnlInputPasien.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         lblId_Pasien.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblId_Pasien.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlInputPasien.add(lblId_Pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 40, 20));
 
         btnHapus.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -432,6 +436,10 @@ public class MFormAdmin extends javax.swing.JFrame {
             }
         });
 
+        jLabel24.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel24.setFont(new java.awt.Font("Tahoma", 3, 8)); // NOI18N
+        jLabel24.setText("cari berdasarkan id pasien");
+
         javax.swing.GroupLayout pnlTblPasienLayout = new javax.swing.GroupLayout(pnlTblPasien);
         pnlTblPasien.setLayout(pnlTblPasienLayout);
         pnlTblPasienLayout.setHorizontalGroup(
@@ -439,12 +447,15 @@ public class MFormAdmin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblPasienLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlTblPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 673, Short.MAX_VALUE)
                     .addGroup(pnlTblPasienLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(txtCariPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 673, Short.MAX_VALUE))
+                        .addGroup(pnlTblPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addGroup(pnlTblPasienLayout.createSequentialGroup()
+                                .addComponent(txtCariPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(29, 29, 29))
         );
         pnlTblPasienLayout.setVerticalGroup(
@@ -455,7 +466,9 @@ public class MFormAdmin extends javax.swing.JFrame {
                 .addGroup(pnlTblPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton14)
                     .addComponent(txtCariPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel24)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlPasienLayout = new javax.swing.GroupLayout(pnlPasien);
@@ -491,6 +504,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         jLabel7.setText("ID");
 
         lblId_dokter.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblId_dokter.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Nama");
@@ -715,21 +729,28 @@ public class MFormAdmin extends javax.swing.JFrame {
             }
         });
 
+        jLabel13.setFont(new java.awt.Font("Tahoma", 3, 8)); // NOI18N
+        jLabel13.setText("Cari id dokter");
+
         javax.swing.GroupLayout pnlTblDokterLayout = new javax.swing.GroupLayout(pnlTblDokter);
         pnlTblDokter.setLayout(pnlTblDokterLayout);
         pnlTblDokterLayout.setHorizontalGroup(
             pnlTblDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblDokterLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblDokterLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlTblDokterLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pnlTblDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblDokterLayout.createSequentialGroup()
-                        .addComponent(txtCariDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(pnlTblDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblDokterLayout.createSequentialGroup()
+                                .addComponent(txtCariDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblDokterLayout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)))
         );
         pnlTblDokterLayout.setVerticalGroup(
             pnlTblDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -741,7 +762,9 @@ public class MFormAdmin extends javax.swing.JFrame {
                     .addComponent(jButton12)
                     .addComponent(txtCariDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
+                .addGroup(pnlTblDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton5)
+                    .addComponent(jLabel13))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -753,7 +776,8 @@ public class MFormAdmin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(pnlInputDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlTblDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnlTblDokter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnlDokterLayout.setVerticalGroup(
             pnlDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -771,6 +795,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         jLabel22.setText("ID");
 
         lblId_Akun.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblId_Akun.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel23.setText("Nama");
@@ -985,15 +1010,21 @@ public class MFormAdmin extends javax.swing.JFrame {
             }
         });
 
+        jLabel14.setFont(new java.awt.Font("Tahoma", 3, 8)); // NOI18N
+        jLabel14.setText("cari id admin");
+
         javax.swing.GroupLayout pnlTblAdminLayout = new javax.swing.GroupLayout(pnlTblAdmin);
         pnlTblAdmin.setLayout(pnlTblAdminLayout);
         pnlTblAdminLayout.setHorizontalGroup(
             pnlTblAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTblAdminLayout.createSequentialGroup()
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTblAdminLayout.createSequentialGroup()
-                .addGroup(pnlTblAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTblAdminLayout.createSequentialGroup()
-                        .addContainerGap(324, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlTblAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addGroup(pnlTblAdminLayout.createSequentialGroup()
                         .addComponent(txtCariAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1008,6 +1039,8 @@ public class MFormAdmin extends javax.swing.JFrame {
                 .addGroup(pnlTblAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton13)
                     .addComponent(txtCariAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1531,6 +1564,8 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -1538,6 +1573,7 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;

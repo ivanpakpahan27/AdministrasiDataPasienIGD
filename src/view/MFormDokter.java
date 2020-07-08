@@ -9,6 +9,7 @@ import com.ConvertDokterToObject;
 import com.ConvertPasienToObject;
 import com.Dokter;
 import com.Pasien;
+import com.Surat;
 import db.ConnectionManager;
 import exec.ExecuteDokter;
 import exec.ExecutePasien;
@@ -29,24 +30,18 @@ import view.FormLogin;
  * @author Ivan Pakpahan
  */
 public class MFormDokter extends javax.swing.JFrame {
-
     /**
      * Creates new form FormDokter
      */
     public MFormDokter() {
         initComponents();
+        setDataPasien();
     }
     public MFormDokter(String para,String pwd){
         initComponents();
         jLabel2.setText("Hai "+para);
         jLabel4.setText(pwd);
         jLabel10.setText(para);
-        /*ConvertDokterToObject cdtb = new ConvertDokterToObject();
-        String[][] dataDokter = cdtb.getProfilDokter(para,pwd);
-        tblProfil.setModel(new javax.swing.table.DefaultTableModel(
-                dataDokter,
-                new String [] {"ID", "Nama", "Spesialis","No Hp", "Alamat","Username","Password","Level"})
-        );*/
         List<Dokter> dokter = new ArrayList<Dokter>();
         ExecuteDokter edok = new ExecuteDokter();
         dokter = edok.getProfilDokter(para, pwd);
@@ -70,10 +65,25 @@ public class MFormDokter extends javax.swing.JFrame {
             dataDokter[i][5]= dok.getUsername();
             dataDokter[i][6]= dok.getPassword();
             dataDokter[i][7]= dok.getLevel();
-            i++;
+            i++;   
         }    
+        setDataPasien();
     }
-    
+    private void setDataPasien(){
+        ConvertPasienToObject cptb = new ConvertPasienToObject();
+        String[][] dataPasien = cptb.getPasien();
+        tblPasienInput.setModel(new javax.swing.table.DefaultTableModel(
+                dataPasien,
+                new String [] {"ID", "Nama", "Alamat","Nomor Hp","Status","Ruang"})
+        );
+    }
+    private void setDataPasien1(){
+        ConvertPasienToObject cptb = new ConvertPasienToObject();
+        String id_pasien = jTextField2.getText();
+        String[][] dataPasien = cptb.getOnePasien(id_pasien);
+        tblPasienInput.setModel(new javax.swing.table.DefaultTableModel(dataPasien,new String [] {"ID", "Nama", "Alamat","Nomor Hp","Status","Ruang"})
+        );
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -89,6 +99,22 @@ public class MFormDokter extends javax.swing.JFrame {
         PanelUtama = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         pnlInput = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblPasienInput = new javax.swing.JTable();
+        jTextField2 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
         pnlProfil = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -152,15 +178,175 @@ public class MFormDokter extends javax.swing.JFrame {
         jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         PanelUtama.add(jLabel2, "card4");
 
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel13.setText("ID Pasien");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel14.setText("Nama");
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel15.setText("Keterangan");
+
+        jLabel16.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel16.setText("-");
+        jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton2.setText("Simpan");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton3.setText("Keluar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        tblPasienInput.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tblPasienInput.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblPasienInput.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPasienInputMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblPasienInput);
+
+        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jTextField2.setText("-");
+
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton4.setText("Cari");
+
+        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel17.setText("-");
+        jLabel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel18.setText("DATA PASIEN");
+
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton5.setText("Reset");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel19.setFont(new java.awt.Font("Tahoma", 3, 8)); // NOI18N
+        jLabel19.setText("cari berdasarkan id pasien");
+
         javax.swing.GroupLayout pnlInputLayout = new javax.swing.GroupLayout(pnlInput);
         pnlInput.setLayout(pnlInputLayout);
         pnlInputLayout.setHorizontalGroup(
             pnlInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 556, Short.MAX_VALUE)
+            .addGroup(pnlInputLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlInputLayout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(pnlInputLayout.createSequentialGroup()
+                        .addGroup(pnlInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14))
+                        .addGap(31, 31, 31)
+                        .addGroup(pnlInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(18, 18, 18)
+                .addGroup(pnlInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInputLayout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInputLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(pnlInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addGroup(pnlInputLayout.createSequentialGroup()
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton4)))
+                        .addGap(4, 4, 4))))
         );
         pnlInputLayout.setVerticalGroup(
             pnlInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 294, Short.MAX_VALUE)
+            .addGroup(pnlInputLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInputLayout.createSequentialGroup()
+                        .addGroup(pnlInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3)
+                        .addGap(29, 29, 29))
+                    .addGroup(pnlInputLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel19)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         PanelUtama.add(pnlInput, "cardInput");
@@ -209,9 +395,11 @@ public class MFormDokter extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("jLabel4");
+        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setText("jLabel10");
+        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout pnlProfilLayout = new javax.swing.GroupLayout(pnlProfil);
         pnlProfil.setLayout(pnlProfilLayout);
@@ -253,7 +441,7 @@ public class MFormDokter extends javax.swing.JFrame {
                 .addGroup(pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jLabel10))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(376, Short.MAX_VALUE))
         );
         pnlProfilLayout.setVerticalGroup(
             pnlProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,24 +485,25 @@ public class MFormDokter extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel12.setText("jLabel12");
+        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelUtama, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 279, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(150, 150, 150)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(PanelUtama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 707, Short.MAX_VALUE)))
+                    .addGap(0, 754, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,7 +518,7 @@ public class MFormDokter extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 317, Short.MAX_VALUE)))
+                    .addGap(0, 319, Short.MAX_VALUE)))
         );
 
         pack();
@@ -338,6 +527,8 @@ public class MFormDokter extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        cl = (CardLayout) PanelUtama.getLayout();
+        cl.show(PanelUtama, "cardInput");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -367,6 +558,46 @@ public class MFormDokter extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Data gagal diubah");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        jLabel16.setText("");
+        jLabel17.setText("");
+        jTextArea1.setText("");
+        setDataPasien();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        String Ket = jTextArea1.getText();
+        Integer IdDokter = Integer.parseInt(jLabel12.getText());
+        Integer IdPasien = Integer.parseInt(jLabel16.getText());
+        System.out.println("Please Enter The Position");
+        Surat sur = new Surat(0,Ket, IdDokter, IdPasien);
+        exec.ExecuteSurat eSur = new exec.ExecuteSurat();
+        int hasil = eSur.insertData(sur);
+        if(hasil >0){
+            JOptionPane.showMessageDialog(null, "Data berhasil di simpan");
+        }else{
+            JOptionPane.showMessageDialog(null, "Data gagal di simpan");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        LoginDokter ld = new LoginDokter();
+        ld.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void tblPasienInputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPasienInputMouseClicked
+        // TODO add your handling code here:
+        int row = tblPasienInput.getSelectedRow();
+        String id_pasien = tblPasienInput.getValueAt(row, 0).toString();
+        String nama = tblPasienInput.getValueAt(row, 1).toString();
+        jLabel16.setText(id_pasien);
+        jLabel17.setText(nama);
+    }//GEN-LAST:event_tblPasienInputMouseClicked
 
     /**
      * @param args the command line arguments
@@ -407,12 +638,23 @@ public class MFormDokter extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelUtama;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -421,10 +663,15 @@ public class MFormDokter extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JPanel pnlInput;
     private javax.swing.JPanel pnlProfil;
+    private javax.swing.JTable tblPasienInput;
     private javax.swing.JTextArea txtProfilAlamatDok;
     private javax.swing.JTextField txtProfilHpDok;
     private javax.swing.JTextField txtProfilNamaDok;

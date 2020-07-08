@@ -37,4 +37,18 @@ public class ExecuteSurat {
         }
         conMan.logOff();
         return lsSurat;}
+    public int insertData(Surat sur){
+        int hasil = 0;
+        String query ="insert into surat_tindakan(Id_ST, Keterangan, Id_Dokter,Id_Pasien)values("+sur.getId_surat()+",'"+sur.getKeterangan()+"',"+sur.getId_dok()+","+sur.getId_pas()+")";
+        ConnectionManager conMan = new ConnectionManager();
+        Connection conn = conMan.logOn();
+        try {
+            Statement stm = conn.createStatement();
+            hasil = stm.executeUpdate(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(ExecuteSurat.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        conMan.logOff();
+        return hasil;
+    }
 }
