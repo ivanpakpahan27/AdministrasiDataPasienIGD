@@ -64,13 +64,11 @@ public class LoginAdmin extends javax.swing.JFrame {
 
         txtUsernameAdminLogin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtUsernameAdminLogin.setBorder(null);
-        txtUsernameAdminLogin.setOpaque(false);
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Kembali");
         jButton2.setBorder(new javax.swing.border.MatteBorder(null));
-        jButton2.setOpaque(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -78,7 +76,6 @@ public class LoginAdmin extends javax.swing.JFrame {
         });
 
         txtPassAdminLog.setBorder(null);
-        txtPassAdminLog.setOpaque(false);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Login.png"))); // NOI18N
 
@@ -157,8 +154,10 @@ public class LoginAdmin extends javax.swing.JFrame {
         int input = eDmin.masukData(username,pass);
         if(input >0){
             JOptionPane.showMessageDialog(flog,"Anda berhasil login.");
-            MFormAdmin Fdmin = new MFormAdmin();
-            Fdmin.setVisible(true);
+            String msg = txtUsernameAdminLogin.getText();
+            String pwd = String.valueOf(txtPassAdminLog.getText());
+            MFormAdmin min = new MFormAdmin(msg,pwd);
+            min.setVisible(true);
             dispose();
         }else{
             JOptionPane.showMessageDialog(flog,"Gagal masuk, pastikan data sudah terdaftar.","Gagal",JOptionPane.WARNING_MESSAGE);
@@ -176,7 +175,7 @@ public class LoginAdmin extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows Classic".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

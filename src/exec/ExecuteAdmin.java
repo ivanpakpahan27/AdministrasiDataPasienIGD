@@ -67,6 +67,32 @@ public class ExecuteAdmin {
         conMan.logOff();
         return lsAdmin;
     }
+    public List<Admin> getProfilAdmin(String uname,String pwd){
+        String query = "SELECT * from admin where Username='"+uname+"'AND Password='"+pwd+"'";
+        ConnectionManager conMan = new ConnectionManager();
+        List<Admin> lsAdmin = new ArrayList<Admin>();
+        Connection conn = conMan.logOn();
+        try {
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(query);
+            while(rs.next()){
+                Admin admin = new Admin();
+                admin.setId_Admin(rs.getInt("Id_Admin"));
+                admin.setNama(rs.getString("Nama"));
+                admin.setUsername(rs.getString("Username"));
+                admin.setPassword(rs.getString("Password"));
+                admin.setLevel(rs.getString("Level"));
+                admin.setNo_Hp(rs.getString("No_Hp"));
+                admin.setEmail(rs.getString("Email"));
+                admin.setAlamat(rs.getString("Alamat"));
+                lsAdmin.add(admin);
+            }
+        }catch (SQLException ex) {
+            Logger.getLogger(ExecuteAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        conMan.logOff();
+        return lsAdmin;
+    }
     public int insertData(Admin admin){
         int hasil = 0;
         String query ="insert into admin(Id_Admin,Nama,Username,Password,Level,No_Hp,Email,Alamat)values"

@@ -10,7 +10,6 @@ public class Pasien {
     private String alamat;
     private String status;
     private String no_ruang;
-    
     public Pasien() {
     }
     public Pasien(int id_pas, String nama, String no_hp, String alamat, String status, String no_ruang) {

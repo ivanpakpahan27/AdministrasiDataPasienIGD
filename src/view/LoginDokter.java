@@ -61,7 +61,6 @@ public class LoginDokter extends javax.swing.JFrame {
 
         txtUsernameDokterLogin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtUsernameDokterLogin.setBorder(null);
-        txtUsernameDokterLogin.setOpaque(false);
         txtUsernameDokterLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameDokterLoginActionPerformed(evt);
@@ -69,7 +68,6 @@ public class LoginDokter extends javax.swing.JFrame {
         });
 
         txtPassDokLog.setBorder(null);
-        txtPassDokLog.setOpaque(false);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/LoginDok.png"))); // NOI18N
 
@@ -87,6 +85,7 @@ public class LoginDokter extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Kembali");
         jButton2.setBorder(null);
+        jButton2.setOpaque(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -187,7 +186,7 @@ public class LoginDokter extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows Classic".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

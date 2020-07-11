@@ -97,7 +97,6 @@ public class MFormDokter extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         PanelUtama = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         pnlInput = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -132,6 +131,7 @@ public class MFormDokter extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
 
@@ -172,11 +172,6 @@ public class MFormDokter extends javax.swing.JFrame {
         jToolBar1.add(jButton6);
 
         PanelUtama.setLayout(new java.awt.CardLayout());
-
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel2.setText("Halo selamat datang...");
-        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        PanelUtama.add(jLabel2, "card4");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setText("ID Pasien");
@@ -480,6 +475,11 @@ public class MFormDokter extends javax.swing.JFrame {
 
         PanelUtama.add(pnlProfil, "cardProfil");
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel2.setText("Halo selamat datang...");
+        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        PanelUtama.add(jLabel2, "card4");
+
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel11.setText("ID :");
 
@@ -610,7 +610,7 @@ public class MFormDokter extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows Classic".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

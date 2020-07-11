@@ -22,7 +22,6 @@ public class ConvertDokterToObject {
             dataDokter[i][5]= dok.getUsername();
             dataDokter[i][6]= dok.getPassword();
             dataDokter[i][7]= dok.getLevel();
-            
             i++;
         }
         return dataDokter;
