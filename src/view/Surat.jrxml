@@ -138,7 +138,7 @@ humas[at]itenas.ac.id, http://www.itenas.ac.id]]></text>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nama]]></text>
+				<text><![CDATA[Nama Pasien]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="258" y="52" width="59" height="20" uuid="d8bd6990-0f0d-493a-9cc1-27b8df1274a0"/>
@@ -186,42 +186,42 @@ humas[at]itenas.ac.id, http://www.itenas.ac.id]]></text>
 			<textField>
 				<reportElement x="0" y="0" width="55" height="65" uuid="6cd8bdf9-4a17-4bf6-a0d1-b8bb9494c4db"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Id_ST}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="116" y="0" width="142" height="65" uuid="95202418-9e93-495c-a2ff-5738aeb44e0c"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Nama}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="258" y="0" width="59" height="65" uuid="9e3a14de-e8af-481e-9f81-e112a47f72da"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pasien_No_Ruangan}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="317" y="0" width="50" height="65" uuid="b17ca770-b9ea-4520-b685-fbb223f34294"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pasien_Status}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="367" y="0" width="188" height="65" uuid="a3d634dd-4afe-43c0-a393-6070b318efce"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Keterangan}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="55" y="0" width="61" height="65" uuid="fddb6c18-24fa-4b82-8099-6f802c58471c"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Id_Dokter}]]></textFieldExpression>
 			</textField>
