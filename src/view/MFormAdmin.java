@@ -38,6 +38,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
 import java.util.Map;
 import exec.PrintSupport;
+import java.util.Date;
 /**
  *
  * @author Ivan Pakpahan
@@ -2497,18 +2498,25 @@ public class MFormAdmin extends javax.swing.JFrame {
         jTextField6.setText(angsur);
         jTextField7.setText(nama);
         jTextField8.setText(no_hp);
+        SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy ',' HH:mm:ss ");
+        Date date = new Date(System.currentTimeMillis());
+        String Tanggal = (formatter.format(date));
         jTextArea1.append("___________________________________NOTA PEMBAYARAN__________________________________\n");
         jTextArea1.append("___________________________LAYANAN INSTALASI GAWAT DARURAT__________________________\n");
-        jTextArea1.append("____________________________________________________________________________________\n");
+        jTextArea1.append("------------------------------------------------------------------------------------\n");
         jTextArea1.append("NOMOR PEMBAYARAN     : "+id_bayar+"\n");
         jTextArea1.append("NOMOR LAPORAN        : "+id_lapor+"\n");
+        jTextArea1.append("TANGGAL/JAM          : "+Tanggal+"\n");
         jTextArea1.append("NAMA                 : Tn/Ny "+nama+"\n");
         jTextArea1.append("KONTAK               : "+no_hp+"\n");
         jTextArea1.append("TOTAL TAGIHAN        : Rp "+tagihan+",00\n");
         jTextArea1.append("TOTAL ANGSURAN       : Rp "+angsur+",00\n");
         jTextArea1.append("HUTANG               : Rp "+hutang+",00\n");
         jTextArea1.append("\n");
+        jTextArea1.append("\n");
+        jTextArea1.append("------------------------------------------------------------------------------------\n");
         jTextArea1.append("Admin\n");
+        jTextArea1.append("\n");
         jTextArea1.append("\n");
         jTextArea1.append(""+jLabel45.getText()+"\n");
         jTextArea1.setEditable(false);

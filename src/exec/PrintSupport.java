@@ -1,5 +1,5 @@
-
 package exec;
+
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -8,7 +8,10 @@ import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import javax.swing.RepaintManager;
-
+/**
+ *
+ * @author Ivan Pakpahan
+ */
 public class PrintSupport implements Printable {
     private Component print_component;
  
@@ -27,7 +30,7 @@ public class PrintSupport implements Printable {
             try {
                 printJob.print();
             } catch (PrinterException pe) {
-                System.out.println("Error printing: " + pe);
+                System.out.println("Tidak bisa cetak: " + pe);
             }
         }
     }
@@ -45,12 +48,10 @@ public class PrintSupport implements Printable {
             return (PAGE_EXISTS);
         }
     }
- 
     public static void disableDoubleBuffering(Component c) {
         RepaintManager currentManager = RepaintManager.currentManager(c);
         currentManager.setDoubleBufferingEnabled(false);
     }
- 
     public static void enableDoubleBuffering(Component c) {
         RepaintManager currentManager = RepaintManager.currentManager(c);
         currentManager.setDoubleBufferingEnabled(true);
