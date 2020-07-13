@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Surat" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13771c9b-f28c-4e01-bf74-508a20e82346">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="41"/>
+	<parameter name="ID_SURAT" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     surat_tindakan.`Id_ST`,
+     surat_tindakan.`Keterangan`,
+     surat_tindakan.`Id_Dokter`,
+     surat_tindakan.`Id_Pasien`,
+     pasien.`Nama`,
+     dokter.`Nama`,
+     pasien.`No_Ruangan` AS pasien_No_Ruangan,
+     dokter.`No_Hp` AS dokter_No_Hp,
+     pasien.`Status` AS pasien_Status
+FROM
+     `surat_tindakan` surat_tindakan INNER JOIN `pasien` pasien ON surat_tindakan.`Id_Pasien` = pasien.`Id_Pasien`
+     INNER JOIN `dokter` dokter ON surat_tindakan.`Id_Dokter` = dokter.`Id_Dokter`
+WHERE surat_tindakan.`Id_ST` = $P{ID_SURAT}]]>
+	</queryString>
+	<field name="Id_ST" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Keterangan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Id_Dokter" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Id_Pasien" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pasien_No_Ruangan" class="java.lang.String"/>
+	<field name="dokter_No_Hp" class="java.lang.String"/>
+	<field name="pasien_Status" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="93" splitType="Stretch">
+			<staticText>
+				<reportElement x="-22" y="77" width="601" height="14" uuid="c08ed765-c748-4727-b51b-9ea4a535e382"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[________________________________________________________________________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="25" width="555" height="20" uuid="ef538a29-2ec5-417c-9f09-f79a4506befd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAYANAN INSTALASI GAWAT DARURAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="5" width="555" height="20" uuid="a49e2fd7-ce29-4f27-b3be-6eb0badd43a2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="15" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[RUMAH SAKIT INSTITUT TEKNOLOGI NASIONAL BANDUNG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="45" width="555" height="32" uuid="c342ecb7-9e54-4262-85a6-cba101d25a20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Jl. PH.H. Mustofa No.23 Bandung 40124, Phone: +62 22 7272215, Fax +62 22 7202892
+humas[at]itenas.ac.id, http://www.itenas.ac.id]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="37" width="555" height="20" uuid="1492d131-d64c-4750-9d62-4df9c1af5e6e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14" isBold="true" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[SURAT KETERANGAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="4" width="133" height="20" uuid="8d4990bd-9d8f-4b73-b394-e97d69578deb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Itenas Bandung,]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="133" y="4" width="100" height="20" uuid="35086f4f-23fe-48f0-9c75-67c60449916b"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="72" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="52" width="55" height="20" uuid="44af48e4-5192-4506-a92c-44d3043c0411"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="55" y="52" width="61" height="20" uuid="e24cfc49-ac5a-4bbf-a795-0dfbfd349229"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="116" y="52" width="142" height="20" uuid="2f934550-3214-437c-af5f-49048109dccb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="258" y="52" width="59" height="20" uuid="2b378dac-6466-4b9e-85ff-f10fc3415aa2"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="367" y="52" width="188" height="20" uuid="10ba80e4-856b-4943-b442-127bafe4a3f2"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="317" y="52" width="50" height="20" uuid="d8f06795-bcb6-41ae-bc3a-6df5cb9f4928"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="52" width="55" height="20" uuid="2f834397-8355-4f1d-bdbc-b71a3dd6254d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID Surat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="52" width="61" height="20" uuid="072e844e-b4ab-46bd-9a0e-6265ac01273d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID Dokter]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="116" y="52" width="142" height="20" uuid="97b8c3a3-285e-411a-b0c5-9fdd5161fbb2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="258" y="52" width="59" height="20" uuid="d8bd6990-0f0d-493a-9cc1-27b8df1274a0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ruang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="317" y="52" width="50" height="20" uuid="de98b464-19ab-467a-be2d-52752e04fd2c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="367" y="52" width="188" height="20" uuid="931f49d4-36f5-4997-921d-9b2cc11fd336"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Keterangan]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="65" splitType="Stretch">
+			<rectangle>
+				<reportElement x="55" y="0" width="61" height="65" uuid="88148f04-32aa-408d-adc4-57cfe9156fed"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="116" y="0" width="142" height="65" uuid="2bcb7ea7-d5eb-4e6d-b14e-80fe14f16260"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="258" y="0" width="59" height="65" uuid="f2cc75b0-00c5-4994-a422-7b1c9486023a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="317" y="0" width="50" height="65" uuid="be960139-8d3a-48ce-9418-3f7a367d909f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="367" y="0" width="188" height="65" uuid="704ab096-a44f-487e-836e-9138d1da776b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="55" height="65" uuid="be2338b6-a772-4068-b1d6-04c6dcd7023e"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="0" width="55" height="65" uuid="6cd8bdf9-4a17-4bf6-a0d1-b8bb9494c4db"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Id_ST}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="116" y="0" width="142" height="65" uuid="95202418-9e93-495c-a2ff-5738aeb44e0c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="258" y="0" width="59" height="65" uuid="9e3a14de-e8af-481e-9f81-e112a47f72da"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pasien_No_Ruangan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="0" width="50" height="65" uuid="b17ca770-b9ea-4520-b685-fbb223f34294"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pasien_Status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="367" y="0" width="188" height="65" uuid="a3d634dd-4afe-43c0-a393-6070b318efce"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Keterangan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="55" y="0" width="61" height="65" uuid="fddb6c18-24fa-4b82-8099-6f802c58471c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Id_Dokter}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="238" splitType="Stretch">
+			<staticText>
+				<reportElement x="383" y="0" width="100" height="20" uuid="3915b983-95d9-4dd2-ae2a-138b230a628e"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Penanggung Jawab]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="317" y="153" width="46" height="20" uuid="f7fda6e7-6d88-4c1b-b0ec-0665947f8da0"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Dokter]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="509" y="153" width="46" height="20" uuid="3c3dffb9-c54e-40ae-8a7b-9fdca0d7b3d3"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Staff]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="467" y="218" width="42" height="20" uuid="d94142d6-12dc-4807-8d03-7a4aaa7642bb"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="509" y="218" width="46" height="20" uuid="35140bf5-1ee9-4075-a2e1-83ce6ce2412e"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-22" y="204" width="601" height="14" uuid="43619fdc-2145-4366-9423-7ceb4b0ec71c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[________________________________________________________________________________________________________________]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

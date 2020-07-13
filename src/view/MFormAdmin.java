@@ -243,6 +243,30 @@ public class MFormAdmin extends javax.swing.JFrame {
           JOptionPane.showMessageDialog(rootPane, e);
         }
         }
+     public void tampilSurat(String kode){
+        java.sql.Connection con = null;
+        try {
+          String JdbcDriver = "com.mysql.jdbc.Driver";
+            Class.forName(JdbcDriver);
+            String URL = "Jdbc:mysql://localhost:3306/administrasi";
+            String user = "root";
+            String pass = "";
+            con = DriverManager.getConnection(URL,user,pass);
+            Statement stm = con.createStatement();
+        try {
+          String path="E:\\ITENAS\\Portofolio\\Aplikasi\\AdministrasiDataPasienIGD\\src\\view\\Surat.jasper";
+          Map parameter = new HashMap();
+          parameter.put("ID_SURAT", kode);
+          JasperPrint print = JasperFillManager.fillReport(path,parameter, con);
+          JasperViewer.viewReport(print, false);
+        } catch (Exception ex) {
+          JOptionPane.showMessageDialog(rootPane,"Dokumen Tidak Ada "+ex);
+        }
+          con.close();
+        } catch (Exception e) {
+          JOptionPane.showMessageDialog(rootPane, e);
+        }
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -379,6 +403,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         txtCariAdmin1 = new javax.swing.JTextField();
         jButton15 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton28 = new javax.swing.JButton();
         pnlPembayaran = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -1593,6 +1618,14 @@ public class MFormAdmin extends javax.swing.JFrame {
             }
         });
 
+        jButton28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton28.setText("Cetak");
+        jButton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton28ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlSuratLayout = new javax.swing.GroupLayout(pnlSurat);
         pnlSurat.setLayout(pnlSuratLayout);
         pnlSuratLayout.setHorizontalGroup(
@@ -1605,7 +1638,10 @@ public class MFormAdmin extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(pnlTampilSurat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlSuratLayout.createSequentialGroup()
+                        .addComponent(jButton28)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(470, 470, 470))
         );
         pnlSuratLayout.setVerticalGroup(
@@ -1617,7 +1653,9 @@ public class MFormAdmin extends javax.swing.JFrame {
                     .addComponent(txtCariAdmin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7)
+                .addGroup(pnlSuratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton7)
+                    .addComponent(jButton28))
                 .addContainerGap(88, Short.MAX_VALUE))
         );
 
@@ -2445,6 +2483,11 @@ public class MFormAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         setDataPembayaran1();
     }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+        // TODO add your handling code here:
+        tampilSurat(txtCariAdmin1.getText());
+    }//GEN-LAST:event_jButton28ActionPerformed
     private void hapus(){
         txtNama_Pasien.setText("");
         txtAlamatPasien.setText("");
@@ -2536,6 +2579,7 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
