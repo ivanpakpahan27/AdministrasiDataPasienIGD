@@ -37,6 +37,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
 import java.util.Map;
+import exec.PrintSupport;
 /**
  *
  * @author Ivan Pakpahan
@@ -69,6 +70,7 @@ public class MFormAdmin extends javax.swing.JFrame {
             dataAdmin[i][0] = ""+min.getId_Admin();
             jLabel33.setText(""+min.getId_Admin());
             dataAdmin[i][1] = min.getNama();
+            jLabel45.setText(min.getNama());
             dataAdmin[i][2]= min.getUsername();
             dataAdmin[i][3]= min.getPassword();
             dataAdmin[i][4] = min.getLevel();
@@ -432,6 +434,10 @@ public class MFormAdmin extends javax.swing.JFrame {
         jButton26 = new javax.swing.JButton();
         jButton27 = new javax.swing.JButton();
         jLabel41 = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel45 = new javax.swing.JLabel();
+        jButton29 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ADMIN");
@@ -1813,6 +1819,21 @@ public class MFormAdmin extends javax.swing.JFrame {
         jLabel41.setFont(new java.awt.Font("Tahoma", 1, 3)); // NOI18N
         jLabel41.setText("jLabel41");
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Monospaced", 1, 13)); // NOI18N
+        jTextArea1.setRows(5);
+        jScrollPane12.setViewportView(jTextArea1);
+
+        jLabel45.setText("jLabel45");
+
+        jButton29.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton29.setText("Reset");
+        jButton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton29ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlPembayaranLayout = new javax.swing.GroupLayout(pnlPembayaran);
         pnlPembayaran.setLayout(pnlPembayaranLayout);
         pnlPembayaranLayout.setHorizontalGroup(
@@ -1822,10 +1843,10 @@ public class MFormAdmin extends javax.swing.JFrame {
                 .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlPembayaranLayout.createSequentialGroup()
                         .addComponent(jLabel36)
-                        .addGap(18, 299, Short.MAX_VALUE))
+                        .addGap(18, 348, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPembayaranLayout.createSequentialGroup()
                         .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlPembayaranLayout.createSequentialGroup()
                                 .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel37)
@@ -1856,14 +1877,20 @@ public class MFormAdmin extends javax.swing.JFrame {
                         .addGap(16, 16, 16)))
                 .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPembayaranLayout.createSequentialGroup()
-                            .addComponent(jButton22)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pnlPembayaranLayout.createSequentialGroup()
+                            .addComponent(jLabel41)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton23))
-                        .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel41))
+                            .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnlPembayaranLayout.createSequentialGroup()
+                            .addComponent(jButton22)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton29))
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 686, Short.MAX_VALUE)
+                        .addComponent(jScrollPane12))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPembayaranLayout.createSequentialGroup()
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton23)))
                 .addContainerGap())
         );
         pnlPembayaranLayout.setVerticalGroup(
@@ -1872,7 +1899,8 @@ public class MFormAdmin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
-                    .addComponent(jLabel41))
+                    .addComponent(jLabel41)
+                    .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlPembayaranLayout.createSequentialGroup()
@@ -1880,8 +1908,11 @@ public class MFormAdmin extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton21)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPembayaranLayout.createSequentialGroup()
                         .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlPembayaranLayout.createSequentialGroup()
                                 .addComponent(jLabel37)
@@ -1914,14 +1945,17 @@ public class MFormAdmin extends javax.swing.JFrame {
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel43)
                             .addComponent(jButton26)))
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlPembayaranLayout.createSequentialGroup()
+                        .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton23))
+                        .addGap(26, 26, 26)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton22)
-                    .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton23)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(jButton29))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlUtama.add(pnlPembayaran, "cardPembayaran");
@@ -2456,16 +2490,33 @@ public class MFormAdmin extends javax.swing.JFrame {
         String angsur = jTable4.getValueAt(row, 4).toString();
         String nama = jTable4.getValueAt(row, 6).toString();
         String no_hp = jTable4.getValueAt(row, 7).toString();
+        int hutang = Integer.parseInt(tagihan)-Integer.parseInt(angsur);
         jLabel41.setText(id_bayar);
         jLabel44.setText(id_lapor);
         jTextField5.setText(tagihan);
         jTextField6.setText(angsur);
         jTextField7.setText(nama);
         jTextField8.setText(no_hp);
+        jTextArea1.append("___________________________________NOTA PEMBAYARAN__________________________________\n");
+        jTextArea1.append("___________________________LAYANAN INSTALASI GAWAT DARURAT__________________________\n");
+        jTextArea1.append("____________________________________________________________________________________\n");
+        jTextArea1.append("NOMOR PEMBAYARAN     : "+id_bayar+"\n");
+        jTextArea1.append("NOMOR LAPORAN        : "+id_lapor+"\n");
+        jTextArea1.append("NAMA                 : Tn/Ny "+nama+"\n");
+        jTextArea1.append("KONTAK               : "+no_hp+"\n");
+        jTextArea1.append("TOTAL TAGIHAN        : Rp "+tagihan+",00\n");
+        jTextArea1.append("TOTAL ANGSURAN       : Rp "+angsur+",00\n");
+        jTextArea1.append("HUTANG               : Rp "+hutang+",00\n");
+        jTextArea1.append("\n");
+        jTextArea1.append("Admin\n");
+        jTextArea1.append("\n");
+        jTextArea1.append(""+jLabel45.getText()+"\n");
+        jTextArea1.setEditable(false);
     }//GEN-LAST:event_jTable4MouseClicked
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
         // TODO add your handling code here:
+        PrintSupport.printComponent(jTextArea1);
         try {
             jTable4.print(PrintMode.FIT_WIDTH, new MessageFormat("NOTA PEMBAYARAN"),null);
         } catch (PrinterException ex) {
@@ -2488,6 +2539,11 @@ public class MFormAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         tampilSurat(txtCariAdmin1.getText());
     }//GEN-LAST:event_jButton28ActionPerformed
+
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        // TODO add your handling code here:
+        jTextArea1.setText("");
+    }//GEN-LAST:event_jButton29ActionPerformed
     private void hapus(){
         txtNama_Pasien.setText("");
         txtAlamatPasien.setText("");
@@ -2580,6 +2636,7 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton28;
+    private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -2628,6 +2685,7 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2636,6 +2694,7 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2648,6 +2707,7 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
