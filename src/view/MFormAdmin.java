@@ -22,6 +22,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.awt.print.PrinterException;
+import java.sql.Statement;
 import java.text.MessageFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +30,13 @@ import javax.swing.JTable.PrintMode;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
+import java.util.Map;
 /**
  *
  * @author Ivan Pakpahan
@@ -211,6 +219,30 @@ public class MFormAdmin extends javax.swing.JFrame {
                 new String [] {"ID", "ID Laporan", "Metode","Tagihan(RP)","Angsur(RP)","Hutang(RP)","Penanggung Jawab","Nomor Hp"})
         );
     }
+     public void tampilReport(String kode){
+        java.sql.Connection con = null;
+        try {
+          String JdbcDriver = "com.mysql.jdbc.Driver";
+            Class.forName(JdbcDriver);
+            String URL = "Jdbc:mysql://localhost:3306/administrasi";
+            String user = "root";
+            String pass = "";
+            con = DriverManager.getConnection(URL,user,pass);
+            Statement stm = con.createStatement();
+        try {
+          String path="E:\\ITENAS\\Portofolio\\Aplikasi\\AdministrasiDataPasienIGD\\src\\view\\Laporan.jasper";
+          Map parameter = new HashMap();
+          parameter.put("ID_LAPORAN", kode);
+          JasperPrint print = JasperFillManager.fillReport(path,parameter, con);
+          JasperViewer.viewReport(print, false);
+        } catch (Exception ex) {
+          JOptionPane.showMessageDialog(rootPane,"Dokumen Tidak Ada "+ex);
+        }
+          con.close();
+        } catch (Exception e) {
+          JOptionPane.showMessageDialog(rootPane, e);
+        }
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -2258,12 +2290,8 @@ public class MFormAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        // TODO add your handling code here:
-        try {
-            jTable2.print(PrintMode.FIT_WIDTH, new MessageFormat("LAPORAN PENANGANAN"),null);
-        } catch (PrinterException ex) {
-            Logger.getLogger(MFormAdmin.class.getName()).log(Level.SEVERE,null, ex);
-        }
+
+        tampilReport(jTextField2.getText());
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
