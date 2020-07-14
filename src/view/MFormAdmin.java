@@ -2475,7 +2475,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         exec.ExecutePembayaran ePem = new exec.ExecutePembayaran();
         int hasil = ePem.hapusData(id_bayar);
         if(hasil >0){
-            JOptionPane.showMessageDialog(null, "Data berhasil di hapus"); 
+            JOptionPane.showMessageDialog(null, "Data berhasil di hapus, Data sudah berelasi"); 
             setDataPembayaran();
         }else{
             JOptionPane.showMessageDialog(null, "Data gagal di hapus");
