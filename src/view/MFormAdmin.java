@@ -2487,6 +2487,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         int row = jTable4.getSelectedRow();
         String id_bayar = jTable4.getValueAt(row, 0).toString();
         String id_lapor = jTable4.getValueAt(row, 1).toString();
+        String metode = jTable4.getValueAt(row, 2).toString();
         String tagihan = jTable4.getValueAt(row, 3).toString();
         String angsur = jTable4.getValueAt(row, 4).toString();
         String nama = jTable4.getValueAt(row, 6).toString();
@@ -2509,9 +2510,22 @@ public class MFormAdmin extends javax.swing.JFrame {
         jTextArea1.append("TANGGAL/JAM          : "+Tanggal+"\n");
         jTextArea1.append("NAMA                 : Tn/Ny "+nama+"\n");
         jTextArea1.append("KONTAK               : "+no_hp+"\n");
-        jTextArea1.append("TOTAL TAGIHAN        : Rp "+tagihan+",00\n");
+        jTextArea1.append("METODE               : "+metode+"\n");
+        jTextArea1.append("TAGIHAN              : Rp "+tagihan+",00\n");
+        jTextArea1.append("BPJS KESEHATAN       : -\n");
         jTextArea1.append("TOTAL ANGSURAN       : Rp "+angsur+",00\n");
         jTextArea1.append("HUTANG               : Rp "+hutang+",00\n");
+        String putus;
+        if (hutang == 0){
+          putus = "LUNAS";
+          jTextArea1.append("TOTAL                : "+putus+"\n");
+        }else{
+          putus = ""+hutang;
+          jTextArea1.append("TOTAL                : Rp "+putus+",00\n");
+        }
+        jTextArea1.append("------------------------------------------------------------------------------------\n");
+        //String putus = 
+        
         jTextArea1.append("\n");
         jTextArea1.append("\n");
         jTextArea1.append("------------------------------------------------------------------------------------\n");
