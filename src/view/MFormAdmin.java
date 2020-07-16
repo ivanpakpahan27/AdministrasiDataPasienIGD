@@ -2436,6 +2436,17 @@ public class MFormAdmin extends javax.swing.JFrame {
         int Hutang = tagihan - angsur;
         String nama = jTextField7.getText();//
         String no_hp = jTextField8.getText();
+        int a = Integer.parseInt(jTextField5.getText());
+        int b = Integer.parseInt(jTextField6.getText());
+        if (b<0){
+            JOptionPane.showMessageDialog(null, "Angsuran tidak boleh bernilai negatif");
+        }else{
+        if (a<0){
+            JOptionPane.showMessageDialog(null, "Tagihan tidak boleh bernilai negatif");
+        }else{
+        if (b>a){
+            JOptionPane.showMessageDialog(null, "Angsuran tidak boleh lebih besar dari tagihan");
+        }else{
         Pembayaran pam = new Pembayaran(0,id_lapor, metode, tagihan,angsur,Hutang,nama,no_hp);
         exec.ExecutePembayaran ePem = new exec.ExecutePembayaran();
         int hasil = ePem.insertData(pam);
@@ -2445,6 +2456,9 @@ public class MFormAdmin extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Data gagal di simpan");
         }
+       }
+      }
+     }
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
