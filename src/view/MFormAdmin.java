@@ -2553,11 +2553,6 @@ public class MFormAdmin extends javax.swing.JFrame {
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
         // TODO add your handling code here:
         PrintSupport.printComponent(jTextArea1);
-        try {
-            jTable4.print(PrintMode.FIT_WIDTH, new MessageFormat("NOTA PEMBAYARAN"),null);
-        } catch (PrinterException ex) {
-            Logger.getLogger(MFormAdmin.class.getName()).log(Level.SEVERE,null, ex);
-        }
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
