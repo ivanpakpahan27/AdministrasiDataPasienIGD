@@ -11,7 +11,7 @@
      surat_tindakan.`Id_Dokter`,
      surat_tindakan.`Id_Pasien`,
      pasien.`Nama`,
-     dokter.`Nama`,
+     dokter.`Nama` AS A,
      pasien.`No_Ruangan` AS pasien_No_Ruangan,
      dokter.`No_Hp` AS dokter_No_Hp,
      pasien.`Status` AS pasien_Status
@@ -35,6 +35,7 @@ WHERE surat_tindakan.`Id_ST` = $P{ID_SURAT}]]>
 	<field name="Nama" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="A" class="java.lang.String"/>
 	<field name="pasien_No_Ruangan" class="java.lang.String"/>
 	<field name="dokter_No_Hp" class="java.lang.String"/>
 	<field name="pasien_Status" class="java.lang.String"/>
@@ -102,13 +103,13 @@ humas[at]itenas.ac.id, http://www.itenas.ac.id]]></text>
 	<columnHeader>
 		<band height="72" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="52" width="55" height="20" uuid="44af48e4-5192-4506-a92c-44d3043c0411"/>
+				<reportElement x="0" y="52" width="44" height="20" uuid="44af48e4-5192-4506-a92c-44d3043c0411"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="55" y="52" width="61" height="20" uuid="e24cfc49-ac5a-4bbf-a795-0dfbfd349229"/>
+				<reportElement x="44" y="52" width="49" height="20" uuid="e24cfc49-ac5a-4bbf-a795-0dfbfd349229"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="116" y="52" width="142" height="20" uuid="2f934550-3214-437c-af5f-49048109dccb"/>
+				<reportElement x="169" y="52" width="89" height="20" uuid="2f934550-3214-437c-af5f-49048109dccb"/>
 			</rectangle>
 			<rectangle>
 				<reportElement x="258" y="52" width="59" height="20" uuid="2b378dac-6466-4b9e-85ff-f10fc3415aa2"/>
@@ -120,21 +121,21 @@ humas[at]itenas.ac.id, http://www.itenas.ac.id]]></text>
 				<reportElement x="317" y="52" width="50" height="20" uuid="d8f06795-bcb6-41ae-bc3a-6df5cb9f4928"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="0" y="52" width="55" height="20" uuid="2f834397-8355-4f1d-bdbc-b71a3dd6254d"/>
+				<reportElement x="0" y="52" width="44" height="20" uuid="2f834397-8355-4f1d-bdbc-b71a3dd6254d"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ID Surat]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="55" y="52" width="61" height="20" uuid="072e844e-b4ab-46bd-9a0e-6265ac01273d"/>
+				<reportElement x="44" y="52" width="49" height="20" uuid="072e844e-b4ab-46bd-9a0e-6265ac01273d"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ID Dokter]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="116" y="52" width="142" height="20" uuid="97b8c3a3-285e-411a-b0c5-9fdd5161fbb2"/>
+				<reportElement x="169" y="52" width="89" height="20" uuid="97b8c3a3-285e-411a-b0c5-9fdd5161fbb2"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
@@ -161,15 +162,28 @@ humas[at]itenas.ac.id, http://www.itenas.ac.id]]></text>
 				</textElement>
 				<text><![CDATA[Keterangan]]></text>
 			</staticText>
+			<rectangle>
+				<reportElement x="93" y="52" width="76" height="20" uuid="31184a97-8754-4f1f-b722-f2924e6132fd"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="93" y="52" width="76" height="20" uuid="564bdcdb-5b91-418d-83e6-223445b46ae2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Dokter]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="65" splitType="Stretch">
 			<rectangle>
-				<reportElement x="55" y="0" width="61" height="65" uuid="88148f04-32aa-408d-adc4-57cfe9156fed"/>
+				<reportElement x="93" y="0" width="76" height="65" uuid="1a4d086e-053b-44d9-9618-0faa3cca3b3b"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="116" y="0" width="142" height="65" uuid="2bcb7ea7-d5eb-4e6d-b14e-80fe14f16260"/>
+				<reportElement x="44" y="0" width="49" height="65" uuid="88148f04-32aa-408d-adc4-57cfe9156fed"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="169" y="0" width="89" height="65" uuid="2bcb7ea7-d5eb-4e6d-b14e-80fe14f16260"/>
 			</rectangle>
 			<rectangle>
 				<reportElement x="258" y="0" width="59" height="65" uuid="f2cc75b0-00c5-4994-a422-7b1c9486023a"/>
@@ -181,17 +195,17 @@ humas[at]itenas.ac.id, http://www.itenas.ac.id]]></text>
 				<reportElement x="367" y="0" width="188" height="65" uuid="704ab096-a44f-487e-836e-9138d1da776b"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="0" y="0" width="55" height="65" uuid="be2338b6-a772-4068-b1d6-04c6dcd7023e"/>
+				<reportElement x="0" y="0" width="44" height="65" uuid="be2338b6-a772-4068-b1d6-04c6dcd7023e"/>
 			</rectangle>
 			<textField>
-				<reportElement x="0" y="0" width="55" height="65" uuid="6cd8bdf9-4a17-4bf6-a0d1-b8bb9494c4db"/>
+				<reportElement x="0" y="0" width="44" height="65" uuid="6cd8bdf9-4a17-4bf6-a0d1-b8bb9494c4db"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Id_ST}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="116" y="0" width="142" height="65" uuid="95202418-9e93-495c-a2ff-5738aeb44e0c"/>
+				<reportElement x="169" y="0" width="89" height="65" uuid="95202418-9e93-495c-a2ff-5738aeb44e0c"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
@@ -219,11 +233,18 @@ humas[at]itenas.ac.id, http://www.itenas.ac.id]]></text>
 				<textFieldExpression><![CDATA[$F{Keterangan}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="55" y="0" width="61" height="65" uuid="fddb6c18-24fa-4b82-8099-6f802c58471c"/>
+				<reportElement x="44" y="0" width="49" height="65" uuid="fddb6c18-24fa-4b82-8099-6f802c58471c"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Id_Dokter}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="0" width="76" height="65" uuid="0d359106-e92e-4871-8136-78fee6565d8c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{A}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

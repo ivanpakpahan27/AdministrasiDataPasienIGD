@@ -48,6 +48,17 @@ public class MFormAdmin extends javax.swing.JFrame {
      * Creates new form MainFormRS
      */
     String TGL;
+    private int tglM,blnM,thnM,tglK;
+    private Date tglpinjam;
+    private Date tglhrskmbli;
+    private Date tglkmbli;
+    private String tanggalHrsKembali;
+    private String tanggalKembali;
+    private int iBulan;
+    private String Sbulan;
+    private String Kbulan;
+    private int inBulan;
+    private int BPJS;
     public MFormAdmin() {
         initComponents();
         setDataPasien();
@@ -439,6 +450,10 @@ public class MFormAdmin extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel45 = new javax.swing.JLabel();
         jButton29 = new javax.swing.JButton();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jTextField9 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ADMIN");
@@ -1835,47 +1850,69 @@ public class MFormAdmin extends javax.swing.JFrame {
             }
         });
 
+        jLabel46.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel46.setText("BPJS");
+
+        jLabel47.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel47.setText("Nomor BPJS");
+
+        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kelas I", "Tidak" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
+        jTextField9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jTextField9.setText("0");
+        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField9ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlPembayaranLayout = new javax.swing.GroupLayout(pnlPembayaran);
         pnlPembayaran.setLayout(pnlPembayaranLayout);
         pnlPembayaranLayout.setHorizontalGroup(
             pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlPembayaranLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlPembayaranLayout.createSequentialGroup()
-                        .addComponent(jLabel36)
-                        .addGap(18, 348, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPembayaranLayout.createSequentialGroup()
-                        .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlPembayaranLayout.createSequentialGroup()
-                                .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel37)
-                                    .addComponent(jLabel38)
-                                    .addComponent(jLabel39)
-                                    .addComponent(jLabel40)
-                                    .addComponent(jLabel42)
-                                    .addComponent(jLabel43))
-                                .addGap(33, 33, 33)
-                                .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField5)
-                                    .addComponent(jTextField6)
-                                    .addComponent(jTextField7)
-                                    .addComponent(jTextField8)
-                                    .addComponent(jComboBox1, 0, 183, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlPembayaranLayout.createSequentialGroup()
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton21)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(16, 16, 16)))
+                .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlPembayaranLayout.createSequentialGroup()
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton21)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlPembayaranLayout.createSequentialGroup()
+                        .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel37)
+                            .addComponent(jLabel38)
+                            .addComponent(jLabel39)
+                            .addComponent(jLabel40)
+                            .addComponent(jLabel42)
+                            .addComponent(jLabel43)
+                            .addComponent(jLabel36)
+                            .addComponent(jLabel46)
+                            .addComponent(jLabel47))
+                        .addGap(19, 19, 19)
+                        .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField5)
+                            .addComponent(jTextField6)
+                            .addComponent(jTextField7)
+                            .addComponent(jTextField8)
+                            .addComponent(jComboBox1, 0, 183, Short.MAX_VALUE)
+                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(16, 16, 16)
                 .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(pnlPembayaranLayout.createSequentialGroup()
@@ -1945,14 +1982,23 @@ public class MFormAdmin extends javax.swing.JFrame {
                         .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel43)
-                            .addComponent(jButton26)))
+                            .addComponent(jButton26))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlPembayaranLayout.createSequentialGroup()
+                                .addComponent(jLabel46)
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel47)
+                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlPembayaranLayout.createSequentialGroup()
                         .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton23))
                         .addGap(26, 26, 26)
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton22)
                     .addComponent(jButton29))
@@ -2328,6 +2374,9 @@ public class MFormAdmin extends javax.swing.JFrame {
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
+        SimpleDateFormat formatter= new SimpleDateFormat("dd MM yyyy");
+        Date date = new Date(System.currentTimeMillis());
+        String TanggalSekarang = (formatter.format(date));
         int id_admin = Integer.parseInt(jLabel33.getText());
         int id_surat = Integer.parseInt(jLabel32.getText());
         int id_pasien = Integer.parseInt(jLabel34.getText());
@@ -2336,6 +2385,72 @@ public class MFormAdmin extends javax.swing.JFrame {
              TGL = fo.format(jDateChooser1.getDate());
         }
         jLabel35.setText(TGL);
+        int tahunH = Integer.parseInt(TanggalSekarang.substring(6, 10));
+        int hariH = Integer.parseInt(TanggalSekarang.substring(0, 2));
+        Sbulan = (String)TanggalSekarang.substring(3, 5);
+        if (Sbulan.compareTo("01") == 0) {
+        iBulan = 1;
+        } else if (Sbulan.compareTo("02") == 0) {
+        iBulan = 2;
+        } else if (Sbulan.compareTo("03") == 0) {
+        iBulan = 3;
+        } else if (Sbulan.compareTo("04") == 0) {
+        iBulan = 4;
+        } else if (Sbulan.compareTo("05") == 0) {
+        iBulan = 5;
+        } else if (Sbulan.compareTo("06") == 0) {
+        iBulan = 6;
+        } else if (Sbulan.compareTo("07") == 0) {
+        iBulan = 7;
+        } else if (Sbulan.compareTo("08") == 0) {
+        iBulan = 8;
+        } else if (Sbulan.compareTo("09") == 0) {
+        iBulan = 9;
+        } else if (Sbulan.compareTo("10") == 0) {
+        iBulan = 10;
+        } else if (Sbulan.compareTo("11") == 0) {
+        iBulan = 11;
+        } else {
+        iBulan = 12;
+        }
+        int tahunK = Integer.parseInt(TGL.substring(6, 10));
+        int hariK = Integer.parseInt(TGL.substring(0, 2));
+        Kbulan = (String)TGL.substring(3, 5);
+        if (Kbulan.compareTo("01") == 0) {
+        inBulan = 1;
+        } else if (Kbulan.compareTo("02") == 0) {
+        inBulan = 2;
+        } else if (Kbulan.compareTo("03") == 0) {
+        inBulan = 3;
+        } else if (Kbulan.compareTo("04") == 0) {
+        inBulan = 4;
+        } else if (Kbulan.compareTo("05") == 0) {
+        inBulan = 5;
+        } else if (Kbulan.compareTo("06") == 0) {
+        inBulan = 6;
+        } else if (Kbulan.compareTo("07") == 0) {
+        inBulan = 7;
+        } else if (Kbulan.compareTo("08") == 0) {
+        inBulan = 8;
+        } else if (Kbulan.compareTo("09") == 0) {
+        inBulan = 9;
+        } else if (Kbulan.compareTo("10") == 0) {
+        inBulan = 10;
+        } else if (Kbulan.compareTo("11") == 0) {
+        inBulan = 11;
+        } else {
+        inBulan = 12;
+        }
+        int hasilHari = hariK-hariH;
+        int hasilBulan = (inBulan-iBulan) * 30;
+        int hasiltahun = (tahunK-tahunH) * 365;
+        int totalwaktu = (hasilHari + hasilBulan + hasiltahun);
+        if (totalwaktu<0){
+            JOptionPane.showMessageDialog(null, "Anda tidak bisa membuat laporan di masa lalu");
+        }else{
+            if (totalwaktu>0){
+            JOptionPane.showMessageDialog(null, "Anda tidak bisa membuat laporan di masa depan");
+        }else{
         Laporan lapor = new Laporan(0,id_pasien, id_admin, id_surat,jLabel35.getText());
         exec.ExecuteLaporan ePas = new exec.ExecuteLaporan();
         int hasil = ePas.insertData(lapor);
@@ -2344,6 +2459,8 @@ public class MFormAdmin extends javax.swing.JFrame {
             setDataLaporan();
         }else{
             JOptionPane.showMessageDialog(null, "Data gagal di simpan");
+        }
+        }
         }
     }//GEN-LAST:event_jButton16ActionPerformed
 
@@ -2429,11 +2546,22 @@ public class MFormAdmin extends javax.swing.JFrame {
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
         // TODO add your handling code here:
+        if (jComboBox2.getSelectedItem()=="Kelas I"){
+            jTextField9.setEnabled(true);
+            BPJS = 20000;
+        }else if (jComboBox2.getSelectedItem()=="Tidak"){
+            jTextField9.setText("");
+            jTextField9.setEnabled(false);
+            BPJS = 0;
+        }
         int id_lapor = Integer.parseInt(jLabel44.getText());
         String metode = jComboBox1.getSelectedItem().toString();
         int tagihan = Integer.parseInt(jTextField5.getText());
         int angsur = Integer.parseInt(jTextField6.getText());
-        int Hutang = tagihan - angsur;
+        int Hutang = tagihan - angsur - BPJS;
+        if (Hutang<0){
+            JOptionPane.showMessageDialog(null, "Mohon maaf nilai tidak boleh bernilai negatif, bulatkan nilai angsuran");
+        }else{
         String nama = jTextField7.getText();//
         String no_hp = jTextField8.getText();
         int a = Integer.parseInt(jTextField5.getText());
@@ -2459,6 +2587,7 @@ public class MFormAdmin extends javax.swing.JFrame {
        }
       }
      }
+    }
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
@@ -2489,10 +2618,10 @@ public class MFormAdmin extends javax.swing.JFrame {
         exec.ExecutePembayaran ePem = new exec.ExecutePembayaran();
         int hasil = ePem.hapusData(id_bayar);
         if(hasil >0){
-            JOptionPane.showMessageDialog(null, "Data berhasil di hapus, Data sudah berelasi"); 
+            JOptionPane.showMessageDialog(null, "Data berhasil di hapus"); 
             setDataPembayaran();
         }else{
-            JOptionPane.showMessageDialog(null, "Data gagal di hapus");
+            JOptionPane.showMessageDialog(null, "Data gagal di hapus, Data sudah berelasi");
         }
     }//GEN-LAST:event_jButton25ActionPerformed
 
@@ -2506,7 +2635,7 @@ public class MFormAdmin extends javax.swing.JFrame {
         String angsur = jTable4.getValueAt(row, 4).toString();
         String nama = jTable4.getValueAt(row, 6).toString();
         String no_hp = jTable4.getValueAt(row, 7).toString();
-        int hutang = Integer.parseInt(tagihan)-Integer.parseInt(angsur);
+        String hutang = jTable4.getValueAt(row, 5).toString();
         jLabel41.setText(id_bayar);
         jLabel44.setText(id_lapor);
         jTextField5.setText(tagihan);
@@ -2519,23 +2648,24 @@ public class MFormAdmin extends javax.swing.JFrame {
         jTextArea1.append("___________________________________NOTA PEMBAYARAN__________________________________\n");
         jTextArea1.append("___________________________LAYANAN INSTALASI GAWAT DARURAT__________________________\n");
         jTextArea1.append("------------------------------------------------------------------------------------\n");
-        jTextArea1.append("NOMOR PEMBAYARAN     : "+id_bayar+"\n");
-        jTextArea1.append("NOMOR LAPORAN        : "+id_lapor+"\n");
-        jTextArea1.append("TANGGAL/JAM          : "+Tanggal+"\n");
-        jTextArea1.append("NAMA                 : Tn/Ny "+nama+"\n");
-        jTextArea1.append("KONTAK               : "+no_hp+"\n");
-        jTextArea1.append("METODE               : "+metode+"\n");
-        jTextArea1.append("TAGIHAN              : Rp "+tagihan+",00\n");
-        jTextArea1.append("BPJS KESEHATAN       : -\n");
-        jTextArea1.append("TOTAL ANGSURAN       : Rp "+angsur+",00\n");
-        jTextArea1.append("HUTANG               : Rp "+hutang+",00\n");
+        jTextArea1.append("NOMOR PEMBAYARAN         : "+id_bayar+"\n");
+        jTextArea1.append("NOMOR LAPORAN            : "+id_lapor+"\n");
+        jTextArea1.append("TANGGAL/JAM              : "+Tanggal+"\n");
+        jTextArea1.append("NAMA                     : Tn/Ny "+nama+"\n");
+        jTextArea1.append("KONTAK                   : "+no_hp+"\n");
+        jTextArea1.append("METODE                   : "+metode+"\n");
+        jTextArea1.append("TAGIHAN                  : Rp "+tagihan+",00\n");
+        jTextArea1.append("BPJS KESEHATAN           : -\n");
+        jTextArea1.append("TOTAL ANGSURAN           : Rp "+angsur+",00\n");
+        jTextArea1.append("HUTANG                   : Rp "+hutang+",00\n");
         String putus;
-        if (hutang == 0){
+        int hutang1 = Integer.parseInt(hutang);
+        if (hutang1 == 0){
           putus = "LUNAS";
-          jTextArea1.append("TOTAL                : "+putus+"\n");
+          jTextArea1.append("TOTAL                    : "+putus+"\n");
         }else{
-          putus = ""+hutang;
-          jTextArea1.append("TOTAL                : Rp "+putus+",00\n");
+          putus = ""+hutang1;
+          jTextArea1.append("TOTAL                    : Rp "+putus+",00\n");
         }
         jTextArea1.append("------------------------------------------------------------------------------------\n");
         //String putus = 
@@ -2575,6 +2705,23 @@ public class MFormAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTextArea1.setText("");
     }//GEN-LAST:event_jButton29ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+        if (jComboBox2.getSelectedIndex()==0){
+            jTextField9.setEnabled(true);
+            BPJS = 20000;
+        }else if (jComboBox2.getSelectedIndex()==1){
+            jTextField9.setText("");
+            jTextField9.setEnabled(false);
+            BPJS = 0;
+        }
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+        jTextField9.setEnabled(false);
+    }//GEN-LAST:event_jTextField9ActionPerformed
     private void hapus(){
         txtNama_Pasien.setText("");
         txtAlamatPasien.setText("");
@@ -2676,6 +2823,7 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2717,6 +2865,8 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2747,6 +2897,7 @@ public class MFormAdmin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblIdAdmin;
     private javax.swing.JLabel lblId_Akun;
