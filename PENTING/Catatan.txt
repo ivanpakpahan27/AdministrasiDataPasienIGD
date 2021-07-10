@@ -1,3 +1,8 @@
 1. Jika di unduh dari GitHub, pastikan lokasi file jasper report sesuai lokasi yang ada di komputer.
    Cara settingnya ada pada tombol "Cetak" di MformAdmin. 
    Ada 2 tabel yang menggunakan jasper report, yaitu Surat Tindakan dan Laporan.
+2. Instal plugin ireport yang terdapat di Jasper Plugin.rar. File rar diekstrak terlebih dahulu
+   Tool->Plugin->Downloaded->Add Plugin
+3. Pada project, Add Jar/Folder, masukkan file yang terdapat di Lib Jasper.zip (diekstrak terlebih dahulu).
+   atau dapat mengunduh seluruh lib yang saya gunakan, link : https://drive.google.com/drive/folders/1WKlWHMRTs6CVRzlXeVFk4XudxHrPmn7y?usp=sharing
+4. UTAMA-> Pastikan load sql yang sudah dilampirkan, dan lakukan revisi apabila terjadi perubahan.
